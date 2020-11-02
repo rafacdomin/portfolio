@@ -1,7 +1,9 @@
-import { Container, Header, Menu } from "../styles/pages/index";
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiDownload } from 'react-icons/fi';
 
-import RafaDev from '../assets/Logo.svg';
+import RafaDev from '@/assets/Logo.svg';
+import aboutSVG from '@/assets/about.svg';
+
+import { Container, Header, Menu, About,  } from "@/styles/pages/index";
 
 export default function Home() {
   return (
@@ -19,6 +21,25 @@ export default function Home() {
           <FiMenu size={24}/>
         </Menu>
       </Header>
+
+      <About id="about">
+        <div>
+          <h1>Rafael Domingues</h1>
+          <p>Desenvolvedor Frontend - ReactJS | VueJS | React Native</p>
+
+          <a href="/">
+            <FiDownload size={16}/>
+            Resume - ptBR
+          </a>
+          
+          <a href="/">
+            <FiDownload size={16}/>
+            Resume - enUS
+          </a>
+        </div>
+
+        <img src={aboutSVG}/>
+      </About>
     </Container>
   )
 }
