@@ -88,3 +88,62 @@ export const About = styled.section`
     width: 684px;
   }
 `;
+
+export const Projects = styled.section`
+  max-width: 1120px;
+  width: 100%;
+
+  margin-top: 72px;
+
+  h2 {
+    max-width: fit-content;
+    margin-left: auto;
+
+    font-size: 36px;
+    font-weight: 400;
+  }
+`;
+
+export const Blog = styled.section`
+  max-width: 1120px;
+  width: 100%;
+
+  margin-top: 72px;
+
+  h2 {
+    max-width: fit-content;
+
+    font-size: 36px;
+    font-weight: 400;
+  }
+`;
+
+export const Contact = styled.section`
+  max-width: 1120px;
+  width: 100%;
+  margin-top: 72px;
+
+  h2 {
+    max-width: fit-content;
+    margin-left: auto;
+
+    font-size: 36px;
+    font-weight: 400;
+  }
+
+  div {
+    display: flex;
+    align-items: center;
+
+    > div {
+      display: flex;
+      flex-direction: column;
+
+      > div {
+        display: flex;
+        flex-direction: row;
+      }
+    }
+  }
+`;
+

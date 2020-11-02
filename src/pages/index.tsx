@@ -2,8 +2,12 @@ import { FiMenu, FiDownload } from 'react-icons/fi';
 
 import RafaDev from '@/assets/Logo.svg';
 import aboutSVG from '@/assets/about.svg';
+import contactSVG from '@/assets/contact.svg';
+import linkedinSVG from '@/assets/linkedin.svg';
+import githubSVG from '@/assets/github.svg';
+import devSVG from '@/assets/dev.svg';
 
-import { Container, Header, Menu, About,  } from "@/styles/pages/index";
+import { Container, Header, Menu, About, Projects, Blog, Contact  } from "@/styles/pages/index";
 
 export default function Home() {
   return (
@@ -40,6 +44,43 @@ export default function Home() {
 
         <img src={aboutSVG}/>
       </About>
+    
+      <Projects id="projects">
+        <h2>PROJETOS</h2>
+      </Projects>
+
+      <Blog id="#blog">
+        <h2>BLOG</h2>
+      </Blog>
+
+      <Contact id="contact">
+        <h2>CONTATO</h2>
+
+        <div>
+          <img src={contactSVG} />
+
+          <div>
+            <span>Rio de Janeiro, RJ</span>
+            <h3>rafaelcodomingues@gmail.com</h3>
+            <p>(21) 99430-1916</p>
+
+            <div>
+              <a href="https://www.linkedin.com/in/rafaelcodomingues/" target="blank">
+                <img src={linkedinSVG} />
+              </a>
+
+              <a href="https://github.com/rafacdomin" target="blank">
+                <img src={githubSVG} />
+              </a>
+
+              <a href="https://dev.to/rafacdomin" target="blank">
+                <img src={devSVG} />
+              </a>
+            </div>
+          </div>
+        </div>
+      
+      </Contact>
     </Container>
   )
 }
