@@ -1,4 +1,9 @@
+import { GetServerSideProps } from 'next';
+import Prismic from 'prismic-javascript';
+import PrismicDOM from 'prismic-dom';
+import { Document } from 'prismic-javascript/types/documents';
 import { FiMenu, FiDownload } from 'react-icons/fi';
+import { client } from '@/lib/prismic';
 
 import RafaDev from '@/assets/Logo.svg';
 import aboutSVG from '@/assets/about.svg';
@@ -9,7 +14,12 @@ import devSVG from '@/assets/dev.svg';
 
 import { Container, Header, Menu, About, Projects, Blog, Contact  } from "@/styles/pages/index";
 
-export default function Home() {
+interface HomeProps {
+  projects: Document[];
+  posts: Document[];
+}
+
+export default function Home({ projects, posts }: HomeProps) {
   return (
     <Container>
       <Header>
@@ -47,10 +57,18 @@ export default function Home() {
     
       <Projects id="projects">
         <h2>PROJETOS</h2>
+
+        {projects.map(project => (
+          <span key={project.uid}>{PrismicDOM.RichText.asText(project.data.title)}</span>
+        ))}
       </Projects>
 
       <Blog id="blog">
         <h2>BLOG</h2>
+
+        {posts.map(post => (
+          <span key={post.uid}>{PrismicDOM.RichText.asText(post.data.post_title)}</span>
+        ))}
       </Blog>
 
       <Contact id="contact">
@@ -83,4 +101,22 @@ export default function Home() {
       </Contact>
     </Container>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+  const [projects, posts] = await Promise.all([
+    client().query([
+      Prismic.Predicates.at('document.type', 'projects')
+    ]),
+    client().query([
+      Prismic.Predicates.at('document.type', 'posts')
+    ])
+  ])
+  
+  return {
+    props: {
+      projects: projects.results,
+      posts: posts.results,
+    }
+  }
 }
