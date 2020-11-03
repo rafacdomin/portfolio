@@ -49,7 +49,7 @@ export default function Home() {
         <h2>PROJETOS</h2>
       </Projects>
 
-      <Blog id="#blog">
+      <Blog id="blog">
         <h2>BLOG</h2>
       </Blog>
 

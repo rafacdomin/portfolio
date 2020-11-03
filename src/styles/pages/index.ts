@@ -4,6 +4,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-bottom: 160px;
 `;
 
 export const Header = styled.header`
@@ -135,13 +136,48 @@ export const Contact = styled.section`
     display: flex;
     align-items: center;
 
+
     > div {
       display: flex;
       flex-direction: column;
+      margin-left: auto;
+
+      justify-content: center;
+
+      span {
+        font-family: 'Montserrat';
+        font-size: 16px;
+        font-weight: 400;
+        color: #FF7B32;
+
+        margin-bottom: 8px;
+      }
+
+      h3 {
+        font-size: 28px;
+        font-weight: 400;
+        
+        margin-bottom: 8px;
+      }
+
+      p {
+        font-size: 18px;
+        color: #666666;
+        font-weight: 400;
+
+        margin-bottom: 48px;
+      }
 
       > div {
         display: flex;
         flex-direction: row;
+        margin-left: 0;
+
+        a {
+          & + a {
+            margin-left: 64px;
+          }
+        }
       }
     }
   }
