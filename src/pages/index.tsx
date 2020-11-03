@@ -3,7 +3,9 @@ import Prismic from 'prismic-javascript';
 import PrismicDOM from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 import { FiMenu, FiDownload } from 'react-icons/fi';
+
 import { client } from '@/lib/prismic';
+import SEO from '@/components/SEO';
 
 import RafaDev from '@/assets/Logo.svg';
 import aboutSVG from '@/assets/about.svg';
@@ -22,6 +24,8 @@ interface HomeProps {
 export default function Home({ projects, posts }: HomeProps) {
   return (
     <Container>
+      <SEO title="Rafael Domingues | Frontend DEV" shouldExcludeTitleSuffix/>
+
       <Header>
         <a href="/">
           <img src={RafaDev}/>
@@ -59,7 +63,7 @@ export default function Home({ projects, posts }: HomeProps) {
         <h2>PROJETOS</h2>
 
         {projects.map(project => (
-          <span key={project.uid}>{PrismicDOM.RichText.asText(project.data.title)}</span>
+          <span key={project.id}>{PrismicDOM.RichText.asText(project.data.title)}</span>
         ))}
       </Projects>
 
@@ -67,7 +71,7 @@ export default function Home({ projects, posts }: HomeProps) {
         <h2>BLOG</h2>
 
         {posts.map(post => (
-          <span key={post.uid}>{PrismicDOM.RichText.asText(post.data.post_title)}</span>
+          <span key={post.id}>{PrismicDOM.RichText.asText(post.data.title)}</span>
         ))}
       </Blog>
 
