@@ -1,15 +1,9 @@
 import { GetServerSideProps } from 'next';
 import Prismic from 'prismic-javascript';
-import PrismicDOM from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 
 import { client } from '@/lib/prismic';
-import SEO from '@/components/SEO';
-import About from '@/components/about';
-import Contact from '@/components/contact';
-import Header from '@/components/header';
-import Projects from '@/components/projects';
-import Blog from '@/components/blog';
+import { SEO, Header, About, Projects, Blog, Contact } from '@/components';
 
 import { Container  } from "@/styles/pages/index";
 
