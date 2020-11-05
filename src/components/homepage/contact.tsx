@@ -19,15 +19,15 @@ const ContactComponent: React.FC = () => {
             <p>(21) 99430-1916</p>
 
             <div>
-              <a href="https://www.linkedin.com/in/rafaelcodomingues/" target="blank">
+              <a href="https://www.linkedin.com/in/rafaelcodomingues/" target="_blank">
                 <img src={linkedinSVG} />
               </a>
 
-              <a href="https://github.com/rafacdomin" target="blank">
+              <a href="https://github.com/rafacdomin" target="_blank">
                 <img src={githubSVG} />
               </a>
 
-              <a href="https://dev.to/rafacdomin" target="blank">
+              <a href="https://dev.to/rafacdomin" target="_blank">
                 <img src={devSVG} />
               </a>
             </div>

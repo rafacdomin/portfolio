@@ -19,7 +19,7 @@ export default function BlogComponent ({ posts }: BlogProps) {
             }
 
             return(
-              <PostComponent key={post.id} href={post.data.post_url.url} target="blank">
+              <PostComponent key={post.id} href={post.data.post_url.url} target="_blank">
                 {post.data.image && <img src={post.data.image.url} alt={post.data.image.alt} />}
 
                 <p>{PrismicDOM.RichText.asText(post.data.title)}</p>
@@ -35,7 +35,7 @@ export default function BlogComponent ({ posts }: BlogProps) {
             }
 
             return(
-              <PostComponent key={post.id} href={post.data.post_url.url} target="blank">
+              <PostComponent key={post.id} href={post.data.post_url.url} target="_blank">
                 {post.data.image && <img src={post.data.image.url} alt={post.data.image.alt} />}
 
                 <p>{PrismicDOM.RichText.asText(post.data.title)}</p>
