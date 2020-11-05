@@ -1,7 +1,7 @@
 import PrismicDOM from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 
-import { Blog } from '@/styles/components/blog';
+import { Blog, PostComponent, Posts } from '@/styles/components/blog';
 
 interface BlogProps {
   posts: Document[];
@@ -12,9 +12,37 @@ export default function BlogComponent ({ posts }: BlogProps) {
     <Blog id="blog">
         <h2>BLOG</h2>
 
-        {posts.map(post => (
-          <p key={post.id}>{PrismicDOM.RichText.asText(post.data.title)}</p>
-        ))}
+        <Posts>
+          {posts.map((post, index) => {
+            if(index > 2){
+              return null;
+            }
+
+            return(
+              <PostComponent key={post.id} href={post.data.post_url.url} target="blank">
+                {post.data.image && <img src={post.data.image.url} alt={post.data.image.alt} />}
+
+                <p>{PrismicDOM.RichText.asText(post.data.title)}</p>
+              </PostComponent>
+            );
+          })}
+        </Posts>
+
+        <Posts>
+          {posts.map((post, index) => {
+            if(index < 3){
+              return null;
+            }
+
+            return(
+              <PostComponent key={post.id} href={post.data.post_url.url} target="blank">
+                {post.data.image && <img src={post.data.image.url} alt={post.data.image.alt} />}
+
+                <p>{PrismicDOM.RichText.asText(post.data.title)}</p>
+              </PostComponent>
+            );
+          })}
+        </Posts>
       </Blog>
   );
 }
