@@ -4,6 +4,7 @@ import Header from './homepage/header';
 import Contact from './homepage/contact';
 import Blog from './homepage/blog';
 import About from './homepage/about';
+import Footer from './homepage/footer';
 
 export {
   SEO,
@@ -12,4 +13,5 @@ export {
   Contact,
   Blog,
   About,
+  Footer
 }

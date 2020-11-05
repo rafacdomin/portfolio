@@ -3,7 +3,7 @@ import Prismic from 'prismic-javascript';
 import { Document } from 'prismic-javascript/types/documents';
 
 import { client } from '@/lib/prismic';
-import { SEO, Header, About, Projects, Blog, Contact } from '@/components';
+import { SEO, Header, About, Projects, Blog, Contact, Footer } from '@/components';
 
 import { Container  } from "@/styles/pages/index";
 
@@ -26,6 +26,8 @@ export default function Home({ projects, posts }: HomeProps) {
       <Blog posts={ posts }/>
 
       <Contact />
+
+      <Footer />
     </Container>
   )
 }

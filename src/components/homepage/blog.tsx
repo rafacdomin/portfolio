@@ -13,7 +13,7 @@ export default function BlogComponent ({ posts }: BlogProps) {
         <h2>BLOG</h2>
 
         {posts.map(post => (
-          <span key={post.id}>{PrismicDOM.RichText.asText(post.data.title)}</span>
+          <p key={post.id}>{PrismicDOM.RichText.asText(post.data.title)}</p>
         ))}
       </Blog>
   );

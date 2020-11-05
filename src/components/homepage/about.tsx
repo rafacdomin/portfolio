@@ -1,3 +1,5 @@
+import Image from 'next/image'
+
 import { FiDownload } from 'react-icons/fi';
 import aboutSVG from '@/assets/about.svg';
 
@@ -8,7 +10,7 @@ const AboutComponent: React.FC = () => {
     <About id="about">
         <div>
           <h1>Rafael Domingues</h1>
-          <p>Desenvolvedor Frontend - ReactJS | VueJS | React Native</p>
+          <p>Desenvolvedor Frontend</p>
 
           <a href="/">
             <FiDownload size={16}/>
@@ -21,7 +23,7 @@ const AboutComponent: React.FC = () => {
           </a>
         </div>
 
-        <img src={aboutSVG}/>
+        <Image src={aboutSVG} alt="about" width={1170} height={1084}/>
       </About>
   );
 }

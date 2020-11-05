@@ -8,6 +8,7 @@ export const About = styled.section`
 
   h1 {
     font-size: 80px;
+    line-height: 100%;
     font-weight: 600;
   }
 
