@@ -1,6 +1,7 @@
 import { useMemo } from 'react';
 import PrismicDOM from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
+import Image from 'next/image';
 
 import ArrayToMatrix from '@/utils/arrayToMatrix';
 
@@ -22,7 +23,11 @@ export default function BlogComponent ({ posts }: BlogProps) {
             {postsInLine.map(post => {
               return(
                 <PostComponent key={post.id} href={post.data.post_url.url} target="_blank">
-                  {post.data.image && <img src={post.data.image.url} alt={post.data.image.alt} />}
+                  <Image 
+                    src={post.data.image.url} 
+                    alt={post.data.image.alt} 
+                    unsized
+                  />
 
                   <p>{PrismicDOM.RichText.asText(post.data.title)}</p>
                 </PostComponent>
