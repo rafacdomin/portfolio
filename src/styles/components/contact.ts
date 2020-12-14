@@ -55,8 +55,15 @@ export const Contact = styled.section`
         margin-left: 0;
 
         a {
+          transition: all 0.2s;
+
           & + a {
             margin-left: 64px;
+          }
+
+          &:hover{
+            transform: translateY(-2px);
+            opacity: 0.6;
           }
         }
       }
