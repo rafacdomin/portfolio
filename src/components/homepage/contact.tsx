@@ -16,7 +16,7 @@ const ContactComponent: React.FC = () => {
           <div>
             <span>Rio de Janeiro, RJ</span>
             <h3>rafaelcodomingues@gmail.com</h3>
-            <p>(21) 99430-1916</p>
+            <p>+55 21 99430-1916</p>
 
             <div>
               <a href="https://www.linkedin.com/in/rafaelcodomingues/" target="_blank">
