@@ -1,15 +1,27 @@
 import styled from 'styled-components';
 
 export const Header = styled.header`
+  position: fixed;
+  background: #fff;
+  z-index: 999;
   width: 100%;
-  max-width: 1120px;
-  display: flex;
-  justify-content: space-between;
-  margin-top: 4px;
+  display: flex; 
+  align-items: center;
+  justify-content: center;
+  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
 
-  img {
-    height: 34px;
-    width: 126px;
+  > div{
+    width: 100%;
+    max-width: 1120px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    padding: 4px 0;
+
+    img {
+      height: 34px;
+      width: 126px;
+    }
   }
 `;
 
