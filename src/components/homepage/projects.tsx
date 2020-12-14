@@ -1,5 +1,4 @@
-import { useCallback, useEffect, useState } from 'react';
-import Image from 'next/image';
+import { useCallback, useState } from 'react';
 import { Document } from 'prismic-javascript/types/documents';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
@@ -12,6 +11,8 @@ interface ProjectProps {
 export default function ProjectsComponent ({ projects }: ProjectProps) {
   const [project, setProject] = useState(projects[0]);
   const [projectIndex, setIndex] = useState(0);
+
+  console.log()
 
   const handleNextProject = useCallback(() => {
     if(projects.length <= (projectIndex + 1)){
@@ -49,6 +50,13 @@ export default function ProjectsComponent ({ projects }: ProjectProps) {
               src={project.data.image.url} 
               alt={project.data.image.alt}
             />
+            <span>
+              {project.data.title[0].text}
+
+              <p>
+                {project.data.description[0]?.text}
+              </p>
+            </span>
           </a>
 
           <button type="button" onClick={handleNextProject}>

@@ -29,6 +29,32 @@ export const Carousel = styled.div`
     &:hover {
       opacity: 0.9;
       transform: translateY(-4px);
+
+      span {
+        display: unset;
+      }
+    }
+
+    span {
+      display: none;
+      position: absolute;
+      bottom: 4px;
+      left: 0;
+
+      background: rgba(0, 0, 0, 0.6);
+      padding: 16px;
+      width: 100%;
+      border-radius: 4px;
+
+      color: #fff;
+      font-size: 21px;
+      font-weight: bold;
+
+      p {
+        margin: 8px 0;
+        font-size: 14px;
+        font-weight: normal;
+      }
     }
   }
 
