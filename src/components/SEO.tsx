@@ -20,12 +20,14 @@ export default function SEO({
 
   return (
     <Head>
+      <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{pageTitle}</title>
 
       { description && <meta name="description" content={description}/> }
       { image && <meta name="image" content={image}/> }
 
       { !shouldIndexPage && <meta name="robots" content="noindex,nofollow"/> }
+      
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />

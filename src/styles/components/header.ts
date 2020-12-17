@@ -1,55 +1,107 @@
 import styled from 'styled-components';
 
+interface IMenuProps {
+  open: boolean;
+}
+
 export const Header = styled.header`
   position: fixed;
-  background: #fff;
   z-index: 999;
-  width: 100%;
-  display: flex; 
+  background: #fff;
+  width: 100vw;
+  height: 8vh;
+  display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 2px 2px 6px rgba(0,0,0,0.1);
+  box-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.1);
 
-  > div{
-    width: 100%;
+  > div {
     max-width: 1120px;
-    display: flex;
     flex: 1;
+    display: flex;
+    align-items: center;
     justify-content: space-between;
-    padding: 4px 0;
+    padding: 0 1.6rem;
 
-    img {
-      height: 34px;
-      width: 126px;
+    @media (min-width: 1100px){
+      padding: 0;
     }
   }
 `;
 
-export const Menu = styled.div`
+export const Menu = styled.div<IMenuProps>`
   display: flex;
-  align-items: center;
 
-  a {
-    font-weight: 300;
-    font-size: 16px;
-    color: #000;
-    text-decoration: none;
-    transition: color 0.2s;
+  div {
+    display: ${props => props.open ? 'flex' : 'none'};
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    top: 6vh;
+    right: 1.6rem;
+
+    padding: 0.4rem;
+    width: 14rem;
     
-    & + a{
-      margin-left: 24px;
+    border: 0.1rem solid rgba(0, 0, 0, 0.4);
+    border-radius: 0.4rem;
+    box-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.1);
+    background: #fff;
+
+    a {
+      display: block;
+      width: 100%;
+      padding: 0.6rem 1rem;
+      margin: 0.2rem 0;
+      border-radius: 0.4rem;
+
+      text-decoration: none;
+      text-align: left;
+      color: #000;
+      transition: background-color 0.5s;
+      
+
+      &:active{
+        background-color: #eee;
+      }
+
+      @media (min-width: 1100px){
+        transition: color 0.2s;
+        
+        &:hover{
+          color: #666;
+        }
+      }
     }
 
-    &:hover{
-      color: #666;
+    @media(min-width: 1100px){
+      display: flex;
+      position: unset;
+      flex-direction: row;
+      width: unset;
+      border: none;
+      box-shadow: none;
     }
   }
 
   svg {
-    margin-left: 24px;
+    padding: 0.8rem;
+    width: 4.2rem;
+    height: 4.2rem;
+    border-radius: 50%;
+    transition: background-color 0.5s;
+    cursor: pointer;
+    
+    &:active {
+      background-color: #ccc;
+    }
 
-    &:hover{
-      cursor: pointer;
+    @media (min-width: 1100px){
+      transition: color 0.2s;
+
+      &:hover {
+        color: #666;
+      }
     }
   }
 `;
