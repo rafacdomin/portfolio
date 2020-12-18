@@ -11,6 +11,7 @@ export const Footer = styled.footer`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin-top: auto;
 
   img {
     height: 80%;

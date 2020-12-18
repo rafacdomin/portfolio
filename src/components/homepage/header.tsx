@@ -19,7 +19,7 @@ const HeaderComponent: React.FC = () => {
         </a>
 
         <Menu open={isOpen}>
-          <div>
+          <div onClick={handleOpen}>
             <a href="#about">Sobre</a>
             <a href="#projects">Projetos</a>
             <a href="#blog">Blog</a>
