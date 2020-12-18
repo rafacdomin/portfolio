@@ -38,6 +38,7 @@ export const About = styled.section`
       font-weight: 400;
       text-decoration: none;
       color: #000;
+      transition: color 0.2s;
 
       & + a {
         margin-top: 0.8rem;
@@ -45,6 +46,10 @@ export const About = styled.section`
 
       svg {
         margin-right: 0.8rem;
+      }
+
+      &:hover {
+        color: #FF7B32;
       }
     }
 
@@ -59,9 +64,8 @@ export const About = styled.section`
   }
 
   img {
-    position: absolute;
-    left: 2rem;
-    top: 8rem;
+    margin-left: -100vw;
+    margin-top: -3rem;
     z-index: -1;
     width: 95%;
   }
@@ -86,10 +90,4 @@ export const About = styled.section`
       grid-area: 'image';
     }
   }
-`;
-
-export const NextImage = styled(Image).attrs({
-  height: '500px',
-  width: '600px',
-})`
 `;

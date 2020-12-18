@@ -1,7 +1,7 @@
 import { FiDownload } from 'react-icons/fi';
 import aboutSVG from '@/assets/about.svg';
 
-import { About, NextImage } from '@/styles/components/about';
+import { About } from '@/styles/components/about';
 
 const AboutComponent: React.FC = () => {
   return (
