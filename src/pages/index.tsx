@@ -23,9 +23,9 @@ export default function Home({ projects, posts }: HomeProps) {
     
       <Projects projects={ projects }/>
 
-      {/* <Blog posts={ posts }/>
+      <Blog posts={ posts }/>
 
-      <Contact /> */}
+      {/* <Contact /> */}
 
       <Footer />
     </Container>

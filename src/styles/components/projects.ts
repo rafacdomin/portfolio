@@ -4,7 +4,7 @@ export const Projects = styled.section`
   max-width: 1120px;
   width: 100vw;
 
-  margin-top: 5.6rem;
+  padding-top: 7.2rem;
 
   h2 {
     padding: 0 1.6rem;
@@ -13,6 +13,10 @@ export const Projects = styled.section`
 
     font-size: 2.4rem;
     font-weight: 400;
+
+    @media(min-width: 1100px) {
+      font-size: 4rem;
+    }
   }
 `;
 
@@ -74,6 +78,7 @@ export const Carousel = styled.div`
 
         p {
           font-size: 1.6rem;
+          margin: 0.8rem 0;
         }
       }
     }
@@ -85,6 +90,7 @@ export const Carousel = styled.div`
     justify-content: center;
 
     border-radius: 50%;
+    padding: 0.4rem;
     border: none;
     background: none;
 

@@ -4,7 +4,7 @@ import Image from 'next/image';
 export const About = styled.section`
   width: 100vw;
   max-width: 1120px;
-  margin-top: 14vh;
+  padding-top: 14vh;
   display: flex;
   align-items: center;
 
