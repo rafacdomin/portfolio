@@ -6,6 +6,7 @@ export const About = styled.section`
   max-width: 1120px;
   margin-top: 14vh;
   display: flex;
+  align-items: center;
 
   div {
     padding-left: 1.6rem;
@@ -64,15 +65,17 @@ export const About = styled.section`
   }
 
   img {
-    margin-left: -100vw;
+    margin-left: -40rem;
     margin-top: -3rem;
     z-index: -1;
     width: 95%;
+    max-height: 50rem;
   }
 
   @media (min-width: 1100px) {
     margin-top: 10rem;
     display: grid;
+    align-items: unset;
     grid-template-rows: 1fr;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'content image';
