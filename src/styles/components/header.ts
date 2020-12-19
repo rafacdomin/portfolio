@@ -7,7 +7,6 @@ interface IMenuProps {
 export const Header = styled.header`
   position: fixed;
   z-index: 999;
-  background: #fff;
   width: 100vw;
   height: 8vh;
   display: flex;
@@ -16,7 +15,9 @@ export const Header = styled.header`
   box-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.1);
 
   > div {
+    background: #fff;
     max-width: 1120px;
+    height: 100%;
     flex: 1;
     display: flex;
     align-items: center;

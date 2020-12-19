@@ -25,7 +25,7 @@ export default function Home({ projects, posts }: HomeProps) {
 
       <Blog posts={ posts }/>
 
-      {/* <Contact /> */}
+      <Contact />
 
       <Footer />
     </Container>

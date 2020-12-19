@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import Image from 'next/image';
 
 export const About = styled.section`
   width: 100vw;
@@ -73,7 +72,7 @@ export const About = styled.section`
   }
 
   @media (min-width: 1100px) {
-    margin-top: 10rem;
+    padding-top: 10rem;
     display: grid;
     align-items: unset;
     grid-template-rows: 1fr;
