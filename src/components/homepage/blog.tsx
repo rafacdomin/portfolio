@@ -1,4 +1,5 @@
 import { useMemo } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import PrismicDOM from 'prismic-dom';
 import { Document } from 'prismic-javascript/types/documents';
 import Image from 'next/image';
@@ -14,10 +15,11 @@ interface BlogProps {
 export default function BlogComponent ({ posts }: BlogProps) {
   const organizedPosts = useMemo(() => ArrayToMatrix<Document>(posts, 3) ,[posts]);
   const mobilePosts = useMemo(() => ArrayToMatrix<Document>(posts, 2) ,[posts]);
+  const { t } = useTranslation('common');
 
   return (
     <Blog id="blog">
-        <h2>BLOG</h2>
+        <h2>{t('blog').toUpperCase()}</h2>
 
         {organizedPosts.map((postsInLine, index) => ( 
           <Posts className="desktop" key={index}>

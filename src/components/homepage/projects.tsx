@@ -1,4 +1,5 @@
 import { useCallback, useState } from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { Document } from 'prismic-javascript/types/documents';
 import { FiChevronLeft, FiChevronRight } from 'react-icons/fi'
 
@@ -11,6 +12,7 @@ interface ProjectProps {
 export default function ProjectsComponent ({ projects }: ProjectProps) {
   const [project, setProject] = useState(projects[0]);
   const [projectIndex, setIndex] = useState(0);
+  const { t } = useTranslation('common');
 
   const handleNextProject = useCallback(() => {
     if(projects.length <= (projectIndex + 1)){
@@ -36,7 +38,7 @@ export default function ProjectsComponent ({ projects }: ProjectProps) {
 
   return (
     <Projects id="projects">
-      <h2>PROJETOS</h2>
+      <h2>{t('projects').toUpperCase()}</h2>
 
         <Carousel>
           <button type="button" onClick={handlePreviousProject}>

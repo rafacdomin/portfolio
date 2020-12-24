@@ -1,3 +1,4 @@
+import useTranslation from 'next-translate/useTranslation';
 import contactSVG from '@/assets/contact.svg';
 import linkedinSVG from '@/assets/linkedin.svg';
 import githubSVG from '@/assets/github.svg';
@@ -6,9 +7,11 @@ import devSVG from '@/assets/dev.svg';
 import { Contact } from '@/styles/components/contact';
 
 const ContactComponent: React.FC = () => {
+  const { t } = useTranslation('common');
+
   return (
     <Contact id="contact">
-        <h2>CONTATO</h2>
+        <h2>{t('contact').toUpperCase()}</h2>
 
         <div>
           <img src={contactSVG} />

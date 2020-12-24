@@ -1,4 +1,4 @@
-import React from 'react';
+import useTranslation from 'next-translate/useTranslation';
 import { Document } from 'prismic-javascript/types/documents';
 
 import { Container, List, Tech } from '@/styles/components/techs';
@@ -8,9 +8,10 @@ interface ITechs {
 }
 
 export default function techs({ techs }: ITechs) {
+  const { t } = useTranslation('common');
 
   return <Container id="techs">
-    <h2>TECNOLOGIAS</h2>
+    <h2>{t('techs').toUpperCase()}</h2>
 
     <List>
       {techs.map(tech => (

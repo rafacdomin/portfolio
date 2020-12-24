@@ -75,6 +75,24 @@ export const Menu = styled.div<IMenuProps>`
       }
     }
 
+    ul {
+      display: ${props => props.open ? 'flex' : 'none'};
+      list-style: none;
+      flex-direction: column;
+      justify-content: center;
+      position: fixed;
+      top: 7vh;
+      left: min(86%, 1120px);
+
+      padding: 0.4rem;
+      width: 14rem;
+      
+      border: 0.1rem solid rgba(0, 0, 0, 0.4);
+      border-radius: 0.4rem;
+      box-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.1);
+      background: #fff;
+    }
+
     @media(min-width: 1100px){
       display: flex;
       position: unset;
