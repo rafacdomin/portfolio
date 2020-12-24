@@ -39,10 +39,6 @@ export const Blog = styled.section`
     .desktop {
       display: flex;
       align-items: unset;
-
-      a + a {
-        margin-left: auto;
-      }
     }
   }
 `;

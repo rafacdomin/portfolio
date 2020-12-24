@@ -1,4 +1,5 @@
 import { GetServerSideProps } from 'next';
+import getT from 'next-translate/getT';
 import Prismic from 'prismic-javascript';
 import { Document } from 'prismic-javascript/types/documents';
 
@@ -35,14 +36,16 @@ export default function Home({ projects, posts, techs }: HomeProps) {
   )
 }
 
-export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
+export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ locale }) => {
+  const t = await getT(locale, 'common');
+
   const [projects, posts, techs] = await Promise.all([
     client().query([
       Prismic.Predicates.at('document.type', 'projects')
-    ]),
+    ], { lang: t(`${locale}`) }),
     client().query([
-      Prismic.Predicates.at('document.type', 'posts')
-    ]),
+      Prismic.Predicates.at('document.type', 'posts'),
+    ], { lang: t(`${locale}`) }),
     client().query([
       Prismic.Predicates.at('document.type', 'techs')
     ])
