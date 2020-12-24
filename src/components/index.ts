@@ -5,6 +5,7 @@ import Contact from './homepage/contact';
 import Blog from './homepage/blog';
 import About from './homepage/about';
 import Footer from './homepage/footer';
+import Techs from './homepage/techs';
 
 export {
   SEO,
@@ -13,5 +14,6 @@ export {
   Contact,
   Blog,
   About,
-  Footer
+  Footer,
+  Techs
 }

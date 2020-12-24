@@ -12,8 +12,6 @@ export default function ProjectsComponent ({ projects }: ProjectProps) {
   const [project, setProject] = useState(projects[0]);
   const [projectIndex, setIndex] = useState(0);
 
-  console.log()
-
   const handleNextProject = useCallback(() => {
     if(projects.length <= (projectIndex + 1)){
       setProject(projects[0]);

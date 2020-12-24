@@ -3,16 +3,17 @@ import Prismic from 'prismic-javascript';
 import { Document } from 'prismic-javascript/types/documents';
 
 import { client } from '@/lib/prismic';
-import { SEO, Header, About, Projects, Blog, Contact, Footer } from '@/components';
+import { SEO, Header, About, Projects, Blog, Contact, Footer, Techs } from '@/components';
 
 import { Container  } from "@/styles/pages/index";
 
 interface HomeProps {
   projects: Document[];
   posts: Document[];
+  techs: Document[];
 }
 
-export default function Home({ projects, posts }: HomeProps) {
+export default function Home({ projects, posts, techs }: HomeProps) {
   return (
     <Container>
       <SEO title="Rafael Domingues | Frontend DEV" shouldExcludeTitleSuffix/>
@@ -20,6 +21,8 @@ export default function Home({ projects, posts }: HomeProps) {
       <Header />
 
       <About />
+
+      <Techs techs={ techs }/>
     
       <Projects projects={ projects }/>
 
@@ -33,12 +36,15 @@ export default function Home({ projects, posts }: HomeProps) {
 }
 
 export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
-  const [projects, posts] = await Promise.all([
+  const [projects, posts, techs] = await Promise.all([
     client().query([
       Prismic.Predicates.at('document.type', 'projects')
     ]),
     client().query([
       Prismic.Predicates.at('document.type', 'posts')
+    ]),
+    client().query([
+      Prismic.Predicates.at('document.type', 'techs')
     ])
   ])
   
@@ -46,6 +52,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async () => {
     props: {
       projects: projects.results,
       posts: posts.results,
+      techs: techs.results,
     }
   }
 }
