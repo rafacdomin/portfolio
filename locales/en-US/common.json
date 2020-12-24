@@ -3,5 +3,7 @@
   "techs": "Technologies",
   "projects": "Projects",
   "blog": "Blog",
-  "contact": "Contact"
+  "contact": "Contact",
+  "en-US": "English",
+  "pt": "Portuguese"
 }

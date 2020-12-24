@@ -52,7 +52,7 @@ export const Menu = styled.div<IMenuProps>`
     a {
       display: block;
       width: 100%;
-      padding: 0.6rem 1rem;
+      padding: 0.4rem 1rem;
       margin: 0.2rem 0;
       border-radius: 0.4rem;
 
@@ -76,21 +76,31 @@ export const Menu = styled.div<IMenuProps>`
     }
 
     ul {
-      display: ${props => props.open ? 'flex' : 'none'};
-      list-style: none;
-      flex-direction: column;
-      justify-content: center;
-      position: fixed;
-      top: 7vh;
-      left: min(86%, 1120px);
-
-      padding: 0.4rem;
-      width: 14rem;
+      margin-top: 0.8rem;
+      padding-top: 0.4rem;
+      border-top: 0.1rem solid #ccc;
       
-      border: 0.1rem solid rgba(0, 0, 0, 0.4);
-      border-radius: 0.4rem;
-      box-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.1);
-      background: #fff;
+      list-style: none;
+
+      a {
+      }
+
+      @media (min-width: 1100px) {
+        display: ${props => props.open ? 'flex' : 'none'};
+        flex-direction: column;
+        justify-content: center;
+        position: absolute;
+        top: calc(100% - 10px);
+        left: calc(50% + 420px);
+
+        padding: 0.4rem;
+        width: 14rem;
+        
+        border: 0.1rem solid rgba(0, 0, 0, 0.4);
+        border-radius: 0.4rem;
+        box-shadow: 0.2rem 0.2rem 0.6rem rgba(0,0,0,0.1);
+        background: #fff;
+      }
     }
 
     @media(min-width: 1100px){

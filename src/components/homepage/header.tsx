@@ -24,7 +24,7 @@ const HeaderComponent: React.FC = () => {
         </a>
 
         <Menu open={isOpen}>
-          <div onClick={handleOpen}>
+          <div onClick={() => setIsOpen(false)}>
             <a href="#about">{t('about')}</a>
             <a href="#techs">{t('techs')}</a>
             <a href="#projects">{t('projects')}</a>
@@ -34,7 +34,7 @@ const HeaderComponent: React.FC = () => {
             <ul>
               {router.locales.map(locale => (
                 <li key={locale}>
-                  <Link href={router.asPath} locale={locale}><a>{locale}</a></Link>
+                  <Link href={router.asPath} locale={locale}><a>{t(`${locale}`)}</a></Link>
                 </li>
               ))}
             </ul>

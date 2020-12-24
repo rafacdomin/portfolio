@@ -16,7 +16,7 @@ interface HomeProps {
 export default function Home({ projects, posts, techs }: HomeProps) {
   return (
     <Container>
-      <SEO title="Rafael Domingues | Frontend DEV" shouldExcludeTitleSuffix/>
+      <SEO title="Rafael Domingues | DEV" shouldExcludeTitleSuffix/>
 
       <Header />
 
