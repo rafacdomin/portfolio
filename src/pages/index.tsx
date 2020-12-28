@@ -12,6 +12,7 @@ interface HomeProps {
   projects: Document[];
   posts: Document[];
   techs: Document[];
+  resume: Document[];
 }
 
 export default function Home({ projects, posts, techs, resume }: HomeProps) {
