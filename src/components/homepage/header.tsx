@@ -34,6 +34,7 @@ const HeaderComponent: React.FC = () => {
             <ul>
               {router.locales.map(locale => (
                 <li key={locale}>
+                  <img src={`${t(`${locale}`)}.png`} alt={locale}/>
                   <Link href={router.asPath} locale={locale}><a>{t(`${locale}`)}</a></Link>
                 </li>
               ))}

@@ -21,6 +21,19 @@ export const About = styled.section`
       }
     }
 
+    h3 {
+      margin-top: 1.6rem;
+      font-weight: 400;
+      font-size: 1.4rem;
+      display: block;
+      max-width: 25rem;
+
+      @media (min-width: 1100px) {
+        font-size: 1.8rem;
+        max-width: unset;
+      }
+    }
+
     p {
       font-size: 1.6rem;
       font-weight: 400;
@@ -39,7 +52,7 @@ export const About = styled.section`
       text-decoration: none;
       color: #000;
       transition: color 0.2s;
-
+      
       & + a {
         margin-top: 0.8rem;
       }
@@ -69,6 +82,7 @@ export const About = styled.section`
     z-index: -1;
     width: 95%;
     max-height: 50rem;
+    opacity: 0.8;
   }
 
   @media (min-width: 1100px) {
@@ -86,10 +100,11 @@ export const About = styled.section`
     }
 
     img {
-      margin-left: -150px;
-      width: 75rem;
+      margin-left: auto;
+      width: auto;
       position: unset;
       grid-area: 'image';
+      opacity: 1;
     }
   }
 `;

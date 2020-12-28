@@ -82,7 +82,14 @@ export const Menu = styled.div<IMenuProps>`
       
       list-style: none;
 
-      a {
+      li {
+        margin-left: 0.8rem;
+        display: flex;
+        align-items: center;
+
+        img {
+          height: 3rem;
+        }
       }
 
       @media (min-width: 1100px) {

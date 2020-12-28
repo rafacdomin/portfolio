@@ -15,13 +15,15 @@ const AboutComponent: React.FC = () => {
 
         <a href="/">
           <FiDownload size={16}/>
-          Resume - ptBR
+          {t('resume')} - ptBR
         </a>
         
         <a href="/">
           <FiDownload size={16}/>
-          Resume - enUS
+          {t('resume')} - enUS
         </a>
+
+        <h3>{t('description')}</h3>
       </div>
 
       <img src={aboutSVG} alt="about"/>

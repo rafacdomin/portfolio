@@ -26,9 +26,12 @@ export const Contact = styled.section`
     > img {
       width: 65%;
       max-height: 50rem;
+      opacity: 0.8;
+      z-index: -1;
 
       @media (min-width: 1100px){
         width: unset;
+        opacity: 1;
       }
     }
 
