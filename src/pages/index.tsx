@@ -14,14 +14,14 @@ interface HomeProps {
   techs: Document[];
 }
 
-export default function Home({ projects, posts, techs }: HomeProps) {
+export default function Home({ projects, posts, techs, resume }: HomeProps) {
   return (
     <Container>
       <SEO title="Rafael Domingues | DEV" shouldExcludeTitleSuffix/>
 
       <Header />
 
-      <About />
+      <About resume={ resume } />
 
       <Techs techs={ techs }/>
     
@@ -39,7 +39,7 @@ export default function Home({ projects, posts, techs }: HomeProps) {
 export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ locale }) => {
   const t = await getT(locale, 'common');
 
-  const [projects, posts, techs] = await Promise.all([
+  const [projects, posts, techs, resume] = await Promise.all([
     client().query([
       Prismic.Predicates.at('document.type', 'projects')
     ], { lang: t(`${locale}`) }),
@@ -48,6 +48,9 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ locale
     ], { lang: t(`${locale}`) }),
     client().query([
       Prismic.Predicates.at('document.type', 'techs')
+    ]),
+    client().query([
+      Prismic.Predicates.at('document.type', 'resume')
     ])
   ])
   
@@ -56,6 +59,7 @@ export const getServerSideProps: GetServerSideProps<HomeProps> = async ({ locale
       projects: projects.results,
       posts: posts.results,
       techs: techs.results,
+      resume: resume.results,
     }
   }
 }
