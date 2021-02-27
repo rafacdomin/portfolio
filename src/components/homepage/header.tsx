@@ -3,9 +3,9 @@ import Link from 'next/link';
 import useTranslation from 'next-translate/useTranslation';
 import { useRouter } from 'next/router';
 import RafaDev from '@/assets/Logo.svg';
-import { FiMenu } from 'react-icons/fi';
+import { FiMenu, FiChevronDown } from 'react-icons/fi';
 
-import { Header, Menu } from '@/styles/components/header'
+import { Header, Menu, OpenMenu } from '@/styles/components/header'
 
 const HeaderComponent: React.FC = () => {
   const { t } = useTranslation('common');
@@ -41,6 +41,10 @@ const HeaderComponent: React.FC = () => {
             </ul>
           </div>
           <FiMenu onClick={handleOpen} size={24}/>
+          <OpenMenu onClick={handleOpen}>
+            <img src={`${t(`${router.locale}`)}.png`} alt={router.locale}/>
+            <FiChevronDown size={24}/>
+          </OpenMenu>
         </Menu>
       </div>
     </Header>

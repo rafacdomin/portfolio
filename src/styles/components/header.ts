@@ -32,6 +32,7 @@ export const Header = styled.header`
 
 export const Menu = styled.div<IMenuProps>`
   display: flex;
+  align-items: center;
 
   div {
     display: ${props => props.open ? 'flex' : 'none'};
@@ -120,7 +121,7 @@ export const Menu = styled.div<IMenuProps>`
     }
   }
 
-  svg {
+  > svg {
     padding: 0.8rem;
     width: 4.2rem;
     height: 4.2rem;
@@ -133,11 +134,29 @@ export const Menu = styled.div<IMenuProps>`
     }
 
     @media (min-width: 1100px){
+      display: none;
       transition: color 0.2s;
 
       &:hover {
         color: #666;
       }
     }
+  }
+`;
+
+export const OpenMenu = styled.div`
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  visibility: hidden;
+
+  img {
+    height: 3rem;
+    margin-right: 0.5rem;
+  }
+
+  @media(min-width: 1100px){
+    visibility: unset;
+    display: flex;
   }
 `;
