@@ -19,7 +19,7 @@ export default createGlobalStyle`
   }
 
   body, button, input {
-    font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
   }
 
