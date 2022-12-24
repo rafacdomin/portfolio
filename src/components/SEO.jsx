@@ -1,25 +1,28 @@
 import Head from 'next/head';
 
-export default function SEO({ 
-  title, 
-  description, 
-  image, 
-  shouldExcludeTitleSuffix = false, 
-  shouldIndexPage = true 
+export default function SEO({
+  title,
+  description,
+  image,
+  shouldExcludeTitleSuffix = false,
+  shouldIndexPage = true,
 }) {
-  const pageTitle = shouldExcludeTitleSuffix ? title : `${title} | Rafael Domingues`;
-  const pageImage = image ? `${process.env.NEXT_PUBLIC_SITE_URL}/${image}` : null;
+  const pageTitle = shouldExcludeTitleSuffix
+    ? title
+    : `${title} | Rafael Domingues`;
+  const pageImage = image
+    ? `${process.env.NEXT_PUBLIC_SITE_URL}/${image}`
+    : null;
 
   return (
     <Head>
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <title>{pageTitle}</title>
 
-      { description && <meta name="description" content={description}/> }
-      { image && <meta name="image" content={image}/> }
+      {description && <meta name="description" content={description} />}
+      {image && <meta name="image" content={image} />}
 
-      { !shouldIndexPage && <meta name="robots" content="noindex,nofollow"/> }
-      
+      {!shouldIndexPage && <meta name="robots" content="noindex,nofollow" />}
 
       <meta httpEquiv="x-ua-compatible" content="IE=edge,chrome=1" />
       <meta name="MobileOptimized" content="320" />
@@ -53,5 +56,5 @@ export default function SEO({
       <meta name="twitter:image:width" content="1200" />
       <meta name="twitter:image:height" content="620" />
     </Head>
-  )
+  );
 }
