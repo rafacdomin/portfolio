@@ -32,7 +32,7 @@ export default createGlobalStyle`
     cursor: pointer;
   }
 
-  @media (min-width: 1100px) {
+  @media (min-width: 1024px) {
     :root {
       font-size: 62.5%;
     }

@@ -1,0 +1,15 @@
+export const colors = {
+  white: '#FFFFFF',
+  blue: '#5DA9E9',
+  c3po: '#FFDB57',
+  dark: '#2E2C2F',
+  green: '#09BC8A',
+  windu: '#663399',
+  rebels: '#EF7B45',
+  black: '#000000',
+  red: '#980F1F',
+  stormtrooper: '#F0F5EF',
+  coruscant: '#394A59',
+  jabba: '#556567',
+  vader: '#1B1C22',
+};
