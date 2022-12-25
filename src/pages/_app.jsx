@@ -2,19 +2,17 @@ import { useState } from 'react';
 import { ThemeProvider } from 'styled-components';
 
 import GlobalStyle from 'styles/GlobalStyle';
-import { brightSide, darkSide } from 'styles/ThemeConfig';
+import { brightSide, darkSide } from 'styles/themes';
 
 export default function MyApp({ Component, pageProps }) {
-  const [toggle, setToggle] = useState(true);
+  const [darkMode, setDarkMode] = useState(false);
 
   function changeTheme() {
-    setToggle(state => !state);
-
-    console.log(toggle)
+    setDarkMode(state => !state);
   }
 
   return (
-    <ThemeProvider theme={toggle ? brightSide : darkSide} >
+    <ThemeProvider theme={darkMode ? darkSide : brightSide} >
       <GlobalStyle />
       <button onClick={changeTheme}>Change Theme</button>
       <Component {...pageProps} />
