@@ -13,8 +13,8 @@ export default createGlobalStyle`
   }
 
   body {
-    background: #fff;
-    color: #000;
+    background: ${({ theme }) => theme.background};
+    color: ${({ theme }) => theme.text};
     -webkit-font-smoothing: antialiased;
   }
 
@@ -24,6 +24,7 @@ export default createGlobalStyle`
   }
 
   h1,h2,h3,h4,h5,h6, strong {
+    font-family: 'Barlow', Arial, Helvetica, sans-serif;
     font-weight: 500;
   }
 
