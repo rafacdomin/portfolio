@@ -1,6 +1,7 @@
 import { colors } from 'styles/colors';
 import menuSVGBright from 'assets/bright/menu.svg';
 import logoSVGBright from 'assets/bright/logo.svg';
+import profilePicBright from 'assets/bright/profile.png';
 
 const brightSide = {
   colors: {
@@ -14,6 +15,7 @@ const brightSide = {
   images: {
     menuSVG: menuSVGBright,
     logoSVG: logoSVGBright,
+    profilePic: profilePicBright,
   },
 };
 

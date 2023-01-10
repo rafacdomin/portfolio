@@ -1,6 +1,7 @@
 import { colors } from 'styles/colors';
 import menuSVGDark from 'assets/dark/menu.svg';
 import logoSVGDark from 'assets/dark/logo.svg';
+import profilePicDark from 'assets/dark/profile.png';
 
 const darkSide = {
   colors: {
@@ -14,6 +15,7 @@ const darkSide = {
   images: {
     menuSVG: menuSVGDark,
     logoSVG: logoSVGDark,
+    profilePic: profilePicDark,
   },
 };
 
