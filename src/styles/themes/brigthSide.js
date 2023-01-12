@@ -11,6 +11,7 @@ const brightSide = {
     text: colors.black,
     background: colors.white,
     header: colors.white,
+    office: colors.white,
   },
   images: {
     menuSVG: menuSVGBright,

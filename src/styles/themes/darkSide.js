@@ -7,10 +7,11 @@ const darkSide = {
   colors: {
     primary: colors.red,
     secundary: colors.c3po,
-    highlight: colors.c3po,
+    highlight: colors.red,
     text: colors.stormtrooper,
     background: colors.vader,
     header: colors.dark,
+    office: colors.c3po,
   },
   images: {
     menuSVG: menuSVGDark,
