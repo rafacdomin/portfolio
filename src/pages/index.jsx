@@ -2,13 +2,14 @@ import { useEffect, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Image from 'next/image';
 
-import { Header } from 'components';
+import { Button, Header } from 'components';
 import { Main, AboutSection } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
 export default function Home() {
   const {
     images: { profilePic },
+    colors: { primary, office },
   } = useTheme();
   const [windowWidth, setWindowWidth] = useState(0);
 
@@ -17,6 +18,7 @@ export default function Home() {
       setWindowWidth(window.innerWidth);
     };
 
+    handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
@@ -32,9 +34,9 @@ export default function Home() {
               Hello There. <br />
               {windowWidth < sizes.desktop_sm
                 ? "I'm Rafael,"
-                : 'I am Rafael Domingues,'}{' '}
+                : 'I am Rafael Domingues,'}
               <br />
-              <span>FrontEnd Developer</span>
+              <span>Front End Developer</span>
             </h1>
             <small>and Jedi Master</small>
             <p>
@@ -42,7 +44,10 @@ export default function Home() {
               with the development and improvement of a Design System and, in
               the meantime, helping the galaxy find peace.
             </p>
-            <button>Get in touch</button>
+
+            <Button color={office} backgroundColor={primary}>
+              Get in touch 🤘
+            </Button>
           </span>
         </AboutSection>
       </Main>

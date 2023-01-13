@@ -17,6 +17,8 @@ const AboutSection = styled.section`
   @media (min-width: ${sizes.desktop_sm}px) {
     display: flex;
     align-items: center;
+
+    margin: 3.2rem 0 0 0;
   }
 
   img {
@@ -65,6 +67,10 @@ const AboutSection = styled.section`
       @media (min-width: ${sizes.mobile_sm}px) {
         margin: 0.4rem 0 0 16rem;
       }
+    }
+
+    button {
+      margin: 1.6rem 0;
     }
 
     @media (min-width: ${sizes.mobile_lg}px) {
