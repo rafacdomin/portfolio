@@ -1,8 +1,10 @@
 import styled from 'styled-components';
+import { sizes } from 'styles/sizes';
 
 const Main = styled.main`
   display: flex;
   align-items: center;
+  justify-content: center;
 
   margin: 0.8rem 2.4rem 0;
 `;
@@ -10,8 +12,9 @@ const Main = styled.main`
 const AboutSection = styled.section`
   flex: 1;
   position: relative;
+  max-width: ${sizes.desktop_md}px;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${sizes.desktop_sm}px) {
     display: flex;
     align-items: center;
   }
@@ -32,11 +35,11 @@ const AboutSection = styled.section`
 
     z-index: -1;
 
-    @media (min-width: 768px) {
+    @media (min-width: ${sizes.desktop_sm}px) {
       position: unset;
 
-      width: 32rem;
-      height: 32rem;
+      width: 28rem;
+      height: 28rem;
     }
   }
 
@@ -59,12 +62,12 @@ const AboutSection = styled.section`
       color: ${({ theme }) => theme.colors.highlight};
       text-decoration: line-through;
 
-      @media (min-width: 320px) {
+      @media (min-width: ${sizes.mobile_sm}px) {
         margin: 0.4rem 0 0 16rem;
       }
     }
 
-    @media (min-width: 425px) {
+    @media (min-width: ${sizes.mobile_lg}px) {
       margin-top: 26vw;
     }
 
@@ -74,7 +77,7 @@ const AboutSection = styled.section`
       max-width: 48vw;
     }
 
-    @media (min-width: 768px) {
+    @media (min-width: ${sizes.desktop_sm}px) {
       margin: 0 0 0 8rem;
       max-width: unset;
     }

@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { sizes } from 'styles/sizes';
 
 const HeaderContainer = styled.header`
   display: flex;
@@ -15,9 +16,9 @@ const HeaderContainer = styled.header`
     display: flex;
     align-items: center;
 
-    max-width: 900px;
+    max-width: ${sizes.desktop_md}px;
 
-    @media (min-width: 425px) {
+    @media (min-width: ${sizes.mobile_lg}px) {
       > img {
         width: 12rem;
         height: 100%;
@@ -42,7 +43,7 @@ const HeaderNav = styled.nav`
     border-radius: 50%;
   }
 
-  @media (min-width: 768px) {
+  @media (min-width: ${sizes.desktop_sm}px) {
     > button {
       display: none;
     }
@@ -52,7 +53,7 @@ const HeaderNav = styled.nav`
 const NavList = styled.ul`
   display: none;
 
-  @media (min-width: 768px) {
+  @media (min-width: ${sizes.desktop_sm}px) {
     display: flex;
     align-items: center;
     list-style: none;
