@@ -1,25 +1,31 @@
 import styled from 'styled-components';
 import { sizes } from 'styles/sizes';
+import { colors } from 'styles/colors';
 
 const Main = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-direction: column;
 
-  margin: 0.8rem 2.4rem 0;
+  section {
+    flex: 1;
+    width: 100%;
+    max-width: ${sizes.desktop_md}px;
+    margin: 1.6rem 0 0 0;
+    padding: 0 2.4rem;
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      display: flex;
+      align-items: center;
+
+      margin: 3.2rem 0 0 0;
+    }
+  }
 `;
 
 const AboutSection = styled.section`
-  flex: 1;
   position: relative;
-  max-width: ${sizes.desktop_md}px;
-
-  @media (min-width: ${sizes.desktop_sm}px) {
-    display: flex;
-    align-items: center;
-
-    margin: 3.2rem 0 0 0;
-  }
 
   img {
     width: 48vw;
@@ -90,4 +96,83 @@ const AboutSection = styled.section`
   }
 `;
 
-export { Main, AboutSection };
+const TechsSection = styled.section`
+  flex-direction: column;
+  padding: 0 !important;
+
+  & > * {
+    padding: 0 2.4rem;
+    width: 100%;
+  }
+
+  h1 {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      margin-left: 0.8rem;
+    }
+  }
+
+  ul {
+    display: flex;
+    list-style: none;
+
+    overflow-x: scroll;
+
+    padding-top: 1.6rem;
+    @media (min-width: ${sizes.desktop_sm}px) {
+      padding-top: 2.4rem;
+    }
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    li + li {
+      margin-left: 1.6rem;
+
+      @media (min-width: ${sizes.desktop_sm}px) {
+        margin-left: 2.4rem;
+      }
+    }
+  }
+`;
+
+const TechItem = styled.a`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform 0.2s;
+  &:hover {
+    transform: translateY(-2px);
+
+    img {
+      filter: brightness(0.8);
+    }
+  }
+
+  img {
+    background: ${colors.dark};
+    padding: 0.8rem;
+    border-radius: 50%;
+    margin-bottom: 0.8rem;
+
+    width: 8rem;
+    height: 8rem;
+    transition: filter 0.2s;
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      width: 10rem;
+      height: 10rem;
+    }
+  }
+`;
+
+export { Main, AboutSection, TechsSection, TechItem };
