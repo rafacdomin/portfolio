@@ -11,11 +11,11 @@ export default function Home() {
     images: { profilePic },
     colors: { primary, office },
   } = useTheme();
-  const [windowWidth, setWindowWidth] = useState(0);
+  const [isMobile, setIsMobile] = useState(false);
 
   useEffect(() => {
     const handleResize = () => {
-      setWindowWidth(window.innerWidth);
+      setIsMobile(window.innerWidth < sizes.desktop_sm);
     };
 
     handleResize();
@@ -32,9 +32,7 @@ export default function Home() {
           <span>
             <h1>
               Hello There. <br />
-              {windowWidth < sizes.desktop_sm
-                ? "I'm Rafael,"
-                : 'I am Rafael Domingues,'}
+              {isMobile ? "I'm Rafael," : 'I am Rafael Domingues,'}
               <br />
               <span>Front End Developer</span>
             </h1>
