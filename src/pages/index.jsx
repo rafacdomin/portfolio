@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Image from 'next/image';
 
-import { Button, Header } from 'components';
+import { Button, Header, SEO } from 'components';
 import { Main, AboutSection, TechsSection, TechItem } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
@@ -75,6 +75,7 @@ export default function Home() {
 
   return (
     <>
+      <SEO title="Rafael Domingues | DEV" shouldExcludeTitleSuffix />
       <Header />
       <Main>
         <AboutSection>
