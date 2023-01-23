@@ -2,6 +2,7 @@ import { colors } from 'styles/colors';
 import menuSVGDark from 'assets/dark/menu.svg';
 import logoSVGDark from 'assets/dark/logo.svg';
 import profilePicDark from 'assets/dark/profile.png';
+import deathStar from 'assets/dark/death_star.svg';
 
 const darkSide = {
   colors: {
@@ -17,6 +18,7 @@ const darkSide = {
     menuSVG: menuSVGDark,
     logoSVG: logoSVGDark,
     profilePic: profilePicDark,
+    techsSVG: deathStar,
   },
 };
 
