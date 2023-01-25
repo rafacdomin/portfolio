@@ -3,13 +3,21 @@ import { useTheme } from 'styled-components';
 import Image from 'next/image';
 
 import { Button, Header, SEO } from 'components';
-import { Main, AboutSection, TechsSection, TechItem } from 'styles/pages/home';
+import {
+  Main,
+  AboutSection,
+  TechItem,
+  ListSection,
+  GridList,
+  GridItem,
+} from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
 export default function Home() {
   const {
-    images: { profilePic, techsSVG },
+    images: { profilePic, techsSVG, projectsSVG, postsSVG },
     colors: { primary, office },
+    name: theme,
   } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
 
@@ -73,12 +81,44 @@ export default function Home() {
     ));
   }, []);
 
+  const projectsElements = useMemo(() => {
+    const projects = [
+      {
+        title: 'Project 1',
+        image:
+          'https://images.prismic.io/rafael-domingues-portfolio/f7c46ef6-5ecc-4d0b-a38f-d9223545829a_1_y6C4nSvy2Woe0m7bWEn4BA.png?auto=compress,format',
+        url: 'https://rafaeldomingues.dev',
+      },
+      {
+        title: 'Project 1',
+        image:
+          'https://images.prismic.io/rafael-domingues-portfolio/c5f15cc5-c09c-4b8a-8978-d69fd42a6e56_demo.png?auto=compress,format',
+        url: 'https://rafaeldomingues.dev/en',
+      },
+      {
+        title: 'Project 1',
+        image:
+          'https://images.prismic.io/rafael-domingues-portfolio/6336aee7-099e-4ccc-b7ea-c8ecc510c6f4_3f3xmx9tb3310r7wsl1c.gif?auto=compress,format',
+        url: 'https://rafaeldomingues.dev/pt',
+      },
+    ];
+
+    return projects.map((project) => (
+      <li key={project.url}>
+        <GridItem href={project.url} target="_blank" rel="external noreferrer">
+          <Image src={project.image} alt="" width={1200} height={630} />
+          <span>{project.title}</span>
+        </GridItem>
+      </li>
+    ));
+  }, []);
+
   return (
     <>
       <SEO title="Rafael Domingues | DEV" shouldExcludeTitleSuffix />
       <Header />
       <Main>
-        <AboutSection>
+        <AboutSection id="about">
           <Image src={profilePic} alt="profile" priority />
           <span>
             <h1>
@@ -87,7 +127,9 @@ export default function Home() {
               <br />
               <span>Front End Developer</span>
             </h1>
-            <small>and Jedi Master</small>
+            <small>
+              and {theme === 'bright' ? 'Jedi Master' : 'Sith Lord'}
+            </small>
             <p>
               Currently based in Rio de Janeiro, Brazil, Planet Earth. Working
               with the development and improvement of a Design System and, in
@@ -100,13 +142,29 @@ export default function Home() {
           </span>
         </AboutSection>
 
-        <TechsSection>
+        <ListSection id="techs">
           <h1>
             Techs <Image src={techsSVG} alt="" />
           </h1>
 
           <ul>{techsImages}</ul>
-        </TechsSection>
+        </ListSection>
+
+        <ListSection id="projects">
+          <h1>
+            Projects <Image src={projectsSVG} alt="" />
+          </h1>
+
+          <GridList>{projectsElements}</GridList>
+        </ListSection>
+
+        <ListSection id="posts">
+          <h1>
+            Posts <Image src={postsSVG} alt="" />
+          </h1>
+
+          <GridList>{projectsElements}</GridList>
+        </ListSection>
       </Main>
     </>
   );

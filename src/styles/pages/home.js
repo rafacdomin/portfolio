@@ -17,6 +17,7 @@ const Main = styled.main`
 
     @media (min-width: ${sizes.desktop_sm}px) {
       display: flex;
+      flex-direction: column;
       align-items: center;
 
       margin: 3.2rem 0 0 0;
@@ -25,6 +26,7 @@ const Main = styled.main`
 `;
 
 const AboutSection = styled.section`
+  flex-direction: row !important;
   position: relative;
 
   img {
@@ -76,7 +78,7 @@ const AboutSection = styled.section`
     }
 
     button {
-      margin: 1.6rem 0;
+      margin: 1.6rem 0 0 0;
     }
 
     @media (min-width: ${sizes.mobile_lg}px) {
@@ -96,8 +98,7 @@ const AboutSection = styled.section`
   }
 `;
 
-const TechsSection = styled.section`
-  flex-direction: column;
+const ListSection = styled.section`
   padding: 0 !important;
 
   & > * {
@@ -149,7 +150,7 @@ const TechItem = styled.a`
   text-decoration: none;
   color: inherit;
 
-  transition: transform 0.2s;
+  transition: transform 0.5s;
   &:hover {
     transform: translateY(-2px);
 
@@ -166,7 +167,7 @@ const TechItem = styled.a`
 
     width: 8rem;
     height: 8rem;
-    transition: filter 0.2s;
+    transition: filter 0.5s;
 
     @media (min-width: ${sizes.desktop_sm}px) {
       width: 10rem;
@@ -175,4 +176,65 @@ const TechItem = styled.a`
   }
 `;
 
-export { Main, AboutSection, TechsSection, TechItem };
+const GridItem = styled.a`
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  text-decoration: none;
+  color: inherit;
+
+  transition: transform 0.5s;
+  &:hover {
+    transform: translateY(-2px);
+
+    img {
+      filter: brightness(0.8);
+    }
+  }
+
+  img {
+    object-fit: cover;
+
+    width: 24rem;
+    height: 16rem;
+
+    border-radius: 0.8rem;
+    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
+    transition: filter 0.5s;
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      width: 100%;
+      height: 24vw;
+      max-height: 240px;
+    }
+  }
+
+  span {
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+
+    position: absolute;
+    bottom: 0;
+    border-radius: 0 0 0.8rem 0.8rem;
+
+    padding: 16px 24px;
+    color: ${colors.white};
+  }
+`;
+
+const GridList = styled.ul`
+  @media (min-width: ${sizes.desktop_sm}px) {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 24px;
+    grid-row-gap: 16px;
+
+    li + li {
+      margin-left: unset !important;
+    }
+  }
+`;
+
+export { Main, AboutSection, ListSection, TechItem, GridItem, GridList };
