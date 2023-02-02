@@ -103,7 +103,7 @@ export default function Home() {
       },
     ];
 
-    return projects.map((project) => (
+    return projects.slice(0, 4).map((project) => (
       <li key={project.url}>
         <GridItem href={project.url} target="_blank" rel="external noreferrer">
           <Image src={project.image} alt="" width={1200} height={630} />
@@ -115,7 +115,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO title="Rafael Domingues | DEV" shouldExcludeTitleSuffix />
+      <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
       <Header />
       <Main>
         <AboutSection id="about">
@@ -156,6 +156,7 @@ export default function Home() {
           </h1>
 
           <GridList>{projectsElements}</GridList>
+          <a href="">See more --&gt;</a>
         </ListSection>
 
         <ListSection id="posts">
@@ -164,6 +165,7 @@ export default function Home() {
           </h1>
 
           <GridList>{projectsElements}</GridList>
+          <a href="">See more --&gt;</a>
         </ListSection>
       </Main>
     </>

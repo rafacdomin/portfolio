@@ -140,6 +140,15 @@ const ListSection = styled.section`
       }
     }
   }
+
+  > a {
+    display: block;
+    text-decoration: none;
+    color: ${({ theme }) => theme.colors.secundary};
+
+    text-align: end;
+    margin: 0.8rem 0 0;
+  }
 `;
 
 const TechItem = styled.a`
