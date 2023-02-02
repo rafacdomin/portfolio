@@ -5,6 +5,7 @@ import profilePicDark from 'assets/dark/profile.png';
 import deathStar from 'assets/dark/death_star.svg';
 import trooper from 'assets/dark/trooper.svg';
 import vader from 'assets/dark/vader.svg';
+import empire from 'assets/dark/empire.svg';
 
 const darkSide = {
   name: 'dark',
@@ -24,6 +25,7 @@ const darkSide = {
     techsSVG: deathStar,
     projectsSVG: trooper,
     postsSVG: vader,
+    contactSVG: empire,
   },
 };
 

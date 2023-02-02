@@ -10,13 +10,14 @@ import {
   ListSection,
   GridList,
   GridItem,
+  Contact,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
 export default function Home() {
   const {
-    images: { profilePic, techsSVG, projectsSVG, postsSVG },
-    colors: { primary, office },
+    images: { profilePic, techsSVG, projectsSVG, postsSVG, contactSVG },
+    colors: { primary, office, highlight },
     name: theme,
   } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
@@ -136,7 +137,7 @@ export default function Home() {
               the meantime, helping the galaxy find peace.
             </p>
 
-            <Button color={office} backgroundColor={primary}>
+            <Button type="button" color={office} backgroundColor={primary}>
               Get in touch 🤘
             </Button>
           </span>
@@ -167,6 +168,28 @@ export default function Home() {
           <GridList>{projectsElements}</GridList>
           <a href="">See more --&gt;</a>
         </ListSection>
+
+        <Contact>
+          <h1>
+            {"Let's get in touch!"} <Image src={contactSVG} alt="" />
+          </h1>
+          <p>
+            Send me a message via email or connect with me through my social
+            media.
+          </p>
+
+          <form action="">
+            <label htmlFor="email">Your Best Email</label>
+            <input type="email" id="email" name="email" />
+
+            <label htmlFor="message">Message</label>
+            <textarea rows="8" cols="50" id="message" name="message" />
+
+            <Button type="submit" backgroundColor={highlight} color={'white'}>
+              Send
+            </Button>
+          </form>
+        </Contact>
       </Main>
     </>
   );

@@ -5,6 +5,7 @@ import profilePicBright from 'assets/bright/profile.png';
 import milleniumFalcon from 'assets/bright/millenium_falcon.svg';
 import c3po from 'assets/bright/c3po.svg';
 import chewie from 'assets/bright/chewie.svg';
+import rebels from 'assets/bright/rebels.svg';
 
 const brightSide = {
   name: 'bright',
@@ -24,6 +25,7 @@ const brightSide = {
     techsSVG: milleniumFalcon,
     projectsSVG: c3po,
     postsSVG: chewie,
+    contactSVG: rebels,
   },
 };
 

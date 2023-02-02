@@ -6,7 +6,7 @@ const ButtonStyled = styled.button`
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ color }) => color};
 
-  padding: 0.8rem 3.2rem;
+  padding: 0.8rem 4.8rem;
   border-radius: 0.4rem;
 
   width: fit-content;

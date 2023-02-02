@@ -18,7 +18,7 @@ export default createGlobalStyle`
     -webkit-font-smoothing: antialiased;
   }
 
-  body, button, input {
+  body, button, input, textarea {
     font-family: 'Inter', Arial, Helvetica, sans-serif;
     font-size: 1.6rem;
   }
