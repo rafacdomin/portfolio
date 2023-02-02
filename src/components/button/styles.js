@@ -11,8 +11,8 @@ const ButtonStyled = styled.button`
 
   width: fit-content;
 
-  transition: background-color 0.2s;
-  transition: transform 0.2s;
+  transition: background-color 0.5s;
+  transition: transform 0.5s;
 
   &:hover {
     background-color: ${({ backgroundColor }) =>

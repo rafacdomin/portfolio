@@ -3,8 +3,11 @@ import menuSVGDark from 'assets/dark/menu.svg';
 import logoSVGDark from 'assets/dark/logo.svg';
 import profilePicDark from 'assets/dark/profile.png';
 import deathStar from 'assets/dark/death_star.svg';
+import trooper from 'assets/dark/trooper.svg';
+import vader from 'assets/dark/vader.svg';
 
 const darkSide = {
+  name: 'dark',
   colors: {
     primary: colors.red,
     secundary: colors.c3po,
@@ -19,6 +22,8 @@ const darkSide = {
     logoSVG: logoSVGDark,
     profilePic: profilePicDark,
     techsSVG: deathStar,
+    projectsSVG: trooper,
+    postsSVG: vader,
   },
 };
 
