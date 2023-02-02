@@ -6,6 +6,11 @@ import milleniumFalcon from 'assets/bright/millenium_falcon.svg';
 import c3po from 'assets/bright/c3po.svg';
 import chewie from 'assets/bright/chewie.svg';
 import rebels from 'assets/bright/rebels.svg';
+import blueSaber from 'assets/bright/blue_saber.svg';
+import greenSaber from 'assets/bright/green_saber.svg';
+import linkedin from 'assets/bright/linkedin.svg';
+import github from 'assets/bright/github.svg';
+import dev from 'assets/bright/dev.svg';
 
 const brightSide = {
   name: 'bright',
@@ -26,6 +31,11 @@ const brightSide = {
     projectsSVG: c3po,
     postsSVG: chewie,
     contactSVG: rebels,
+    saberLeft: blueSaber,
+    saberRight: greenSaber,
+    linkedinSVG: linkedin,
+    githubSVG: github,
+    devSVG: dev,
   },
 };
 

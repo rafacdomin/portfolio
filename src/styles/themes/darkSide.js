@@ -6,6 +6,10 @@ import deathStar from 'assets/dark/death_star.svg';
 import trooper from 'assets/dark/trooper.svg';
 import vader from 'assets/dark/vader.svg';
 import empire from 'assets/dark/empire.svg';
+import redSaber from 'assets/dark/red_saber.svg';
+import linkedin from 'assets/dark/linkedin.svg';
+import github from 'assets/dark/github.svg';
+import dev from 'assets/dark/dev.svg';
 
 const darkSide = {
   name: 'dark',
@@ -26,6 +30,11 @@ const darkSide = {
     projectsSVG: trooper,
     postsSVG: vader,
     contactSVG: empire,
+    saberLeft: redSaber,
+    saberRight: redSaber,
+    linkedinSVG: linkedin,
+    githubSVG: github,
+    devSVG: dev,
   },
 };
 

@@ -294,6 +294,44 @@ const Contact = styled.section`
       margin-left: auto;
     }
   }
+
+  > div {
+    margin: 2.4rem 0;
+    display: flex;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+
+      @media (min-width: ${sizes.desktop_sm}px) {
+        width: 45%;
+
+        & + img {
+          margin-left: auto;
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    li {
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      & + li {
+        margin-left: 1.6rem;
+      }
+    }
+  }
 `;
 
 export {

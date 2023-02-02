@@ -16,7 +16,18 @@ import { sizes } from 'styles/sizes';
 
 export default function Home() {
   const {
-    images: { profilePic, techsSVG, projectsSVG, postsSVG, contactSVG },
+    images: {
+      profilePic,
+      techsSVG,
+      projectsSVG,
+      postsSVG,
+      contactSVG,
+      saberLeft,
+      saberRight,
+      linkedinSVG,
+      githubSVG,
+      devSVG,
+    },
     colors: { primary, office, highlight },
     name: theme,
   } = useTheme();
@@ -114,6 +125,49 @@ export default function Home() {
     ));
   }, []);
 
+  const socials = useMemo(() => {
+    const socialItems = [
+      {
+        name: 'Linkedin',
+        image: linkedinSVG,
+        url: 'https://www.linkedin.com/in/rafaelcodomingues',
+      },
+      {
+        name: 'Github',
+        image: githubSVG,
+        url: 'https://www.linkedin.com/in/rafaelcodomingues',
+      },
+      {
+        name: 'Dev.to',
+        image: devSVG,
+        url: 'https://www.linkedin.com/in/rafaelcodomingues',
+      },
+    ];
+
+    return socialItems.map((social) => (
+      <li key={social.name}>
+        <a href={social.url} target="_blank" rel="noreferrer">
+          <Image src={social.image} alt={social.name} />
+        </a>
+      </li>
+    ));
+  }, [devSVG, githubSVG, linkedinSVG]);
+
+  const sabers = useMemo(() => {
+    console.log('sabers');
+
+    if (isMobile) {
+      return <Image src={saberRight} alt="" />;
+    } else {
+      return (
+        <>
+          <Image src={saberLeft} alt="" />
+          <Image src={saberRight} alt="" />
+        </>
+      );
+    }
+  }, [isMobile, saberLeft, saberRight]);
+
   return (
     <>
       <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
@@ -169,7 +223,7 @@ export default function Home() {
           <a href="">See more --&gt;</a>
         </ListSection>
 
-        <Contact>
+        <Contact id="contact">
           <h1>
             {"Let's get in touch!"} <Image src={contactSVG} alt="" />
           </h1>
@@ -189,6 +243,10 @@ export default function Home() {
               Send
             </Button>
           </form>
+
+          <div>{sabers}</div>
+
+          <ul>{socials}</ul>
         </Contact>
       </Main>
     </>
