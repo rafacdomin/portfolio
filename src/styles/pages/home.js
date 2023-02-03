@@ -309,6 +309,10 @@ const Contact = styled.section`
         & + img {
           margin-left: auto;
         }
+
+        &.rotate {
+          transform: rotate(180deg);
+        }
       }
     }
   }
@@ -334,6 +338,8 @@ const Contact = styled.section`
   }
 `;
 
+const Footer = styled.footer``;
+
 export {
   Main,
   AboutSection,
@@ -342,4 +348,5 @@ export {
   GridItem,
   GridList,
   Contact,
+  Footer,
 };

@@ -154,19 +154,21 @@ export default function Home() {
   }, [devSVG, githubSVG, linkedinSVG]);
 
   const sabers = useMemo(() => {
-    console.log('sabers');
-
     if (isMobile) {
-      return <Image src={saberRight} alt="" />;
+      return <Image src={saberLeft} alt="" />;
     } else {
       return (
         <>
-          <Image src={saberLeft} alt="" />
+          <Image
+            src={saberLeft}
+            alt=""
+            className={theme === 'dark' ? 'rotate' : null}
+          />
           <Image src={saberRight} alt="" />
         </>
       );
     }
-  }, [isMobile, saberLeft, saberRight]);
+  }, [isMobile, saberLeft, saberRight, theme]);
 
   return (
     <>
