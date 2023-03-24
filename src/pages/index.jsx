@@ -10,13 +10,28 @@ import {
   ListSection,
   GridList,
   GridItem,
+  Contact,
+  Footer,
+  Color,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
 export default function Home() {
   const {
-    images: { profilePic, techsSVG, projectsSVG, postsSVG },
-    colors: { primary, office },
+    images: {
+      profilePic,
+      techsSVG,
+      projectsSVG,
+      postsSVG,
+      contactSVG,
+      saberLeft,
+      saberRight,
+      linkedinSVG,
+      githubSVG,
+      devSVG,
+      logoSVG,
+    },
+    colors: { primary, office, highlight, secundary, tertiary, quaternary },
     name: theme,
   } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
@@ -113,6 +128,65 @@ export default function Home() {
     ));
   }, []);
 
+  const socials = useMemo(() => {
+    const socialItems = [
+      {
+        name: 'Linkedin',
+        image: linkedinSVG,
+        url: 'https://www.linkedin.com/in/rafaelcodomingues',
+      },
+      {
+        name: 'Github',
+        image: githubSVG,
+        url: 'https://www.linkedin.com/in/rafaelcodomingues',
+      },
+      {
+        name: 'Dev.to',
+        image: devSVG,
+        url: 'https://www.linkedin.com/in/rafaelcodomingues',
+      },
+    ];
+
+    return socialItems.map((social) => (
+      <li key={social.name}>
+        <a href={social.url} target="_blank" rel="noreferrer">
+          <Image src={social.image} alt={social.name} />
+        </a>
+      </li>
+    ));
+  }, [devSVG, githubSVG, linkedinSVG]);
+
+  const sabers = useMemo(() => {
+    if (isMobile) {
+      return <Image src={saberLeft} alt="" />;
+    } else {
+      return (
+        <>
+          <Image
+            src={saberLeft}
+            alt=""
+            className={theme === 'dark' ? 'rotate' : null}
+          />
+          <Image src={saberRight} alt="" />
+        </>
+      );
+    }
+  }, [isMobile, saberLeft, saberRight, theme]);
+
+  const actualYear = useMemo(() => new Date().getFullYear(), []);
+
+  const colors = useMemo(
+    () => (
+      <>
+        <Color color={primary} />
+        <Color color={secundary} />
+        <Color color={tertiary} />
+        <Color color={quaternary} />
+      </>
+    ),
+    [primary, secundary, tertiary, quaternary]
+  );
+
   return (
     <>
       <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
@@ -136,7 +210,7 @@ export default function Home() {
               the meantime, helping the galaxy find peace.
             </p>
 
-            <Button color={office} backgroundColor={primary}>
+            <Button type="button" color={office} backgroundColor={primary}>
               Get in touch 🤘
             </Button>
           </span>
@@ -167,6 +241,43 @@ export default function Home() {
           <GridList>{projectsElements}</GridList>
           <a href="">See more --&gt;</a>
         </ListSection>
+
+        <Contact id="contact">
+          <h1>
+            {"Let's get in touch!"} <Image src={contactSVG} alt="" />
+          </h1>
+          <p>
+            Send me a message via email or connect with me through my social
+            media.
+          </p>
+
+          <form action="">
+            <label htmlFor="email">Your Best Email</label>
+            <input type="email" id="email" name="email" />
+
+            <label htmlFor="message">Message</label>
+            <textarea rows="8" cols="50" id="message" name="message" />
+
+            <Button type="submit" backgroundColor={highlight} color={'white'}>
+              Send
+            </Button>
+          </form>
+
+          <div>{sabers}</div>
+
+          <ul>{socials}</ul>
+        </Contact>
+
+        <Footer>
+          <div>
+            <div>
+              <Image src={logoSVG} alt="Rafa Dev" />
+              Copyright © {actualYear} Rafael Domingues
+            </div>
+          </div>
+
+          <ul>{colors}</ul>
+        </Footer>
       </Main>
     </>
   );

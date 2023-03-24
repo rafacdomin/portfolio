@@ -121,9 +121,9 @@ const ListSection = styled.section`
 
     overflow-x: scroll;
 
-    padding-top: 1.6rem;
+    padding: 1.6rem;
     @media (min-width: ${sizes.desktop_sm}px) {
-      padding-top: 2.4rem;
+      padding: 2.4rem;
     }
 
     &::-webkit-scrollbar {
@@ -147,7 +147,6 @@ const ListSection = styled.section`
     color: ${({ theme }) => theme.colors.secundary};
 
     text-align: end;
-    margin: 0.8rem 0 0;
   }
 `;
 
@@ -246,4 +245,142 @@ const GridList = styled.ul`
   }
 `;
 
-export { Main, AboutSection, ListSection, TechItem, GridItem, GridList };
+const Contact = styled.section`
+  display: flex;
+  flex-direction: column;
+  align-items: unset !important;
+
+  margin: 0 2.4rem;
+
+  h1 {
+    display: flex;
+    align-items: flex-start;
+
+    img {
+      margin-left: 0.8rem;
+    }
+  }
+
+  p {
+    font-size: 1.4rem;
+    margin: 0.8rem 0 1.6rem;
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      margin: 0.4rem 0 2.4rem;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea {
+      margin: 0.4rem 0 0.8rem;
+      padding: 0.8rem;
+
+      border: 1px solid ${({ theme }) => theme.colors.primary};
+      border-radius: 0.4rem;
+
+      background-color: ${({ theme }) => theme.colors.background};
+      color: ${({ theme }) => theme.colors.text};
+
+      @media (min-width: ${sizes.desktop_sm}px) {
+        margin: 0.8rem 0 1.6rem;
+      }
+    }
+
+    button {
+      margin-left: auto;
+    }
+  }
+
+  > div {
+    margin: 2.4rem 0;
+    display: flex;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+
+      @media (min-width: ${sizes.desktop_sm}px) {
+        width: 45%;
+
+        & + img {
+          margin-left: auto;
+        }
+
+        &.rotate {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+
+  ul {
+    list-style: none;
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    li {
+      transition: transform 0.2s;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      & + li {
+        margin-left: 1.6rem;
+      }
+    }
+  }
+`;
+
+const Footer = styled.footer`
+  width: 100%;
+
+  > div {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+
+    div {
+      flex: 1;
+      margin: 1.6rem 2.4rem 0;
+      max-width: ${sizes.desktop_md}px;
+
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      font-size: 1.2rem;
+    }
+  }
+
+  ul {
+    display: flex;
+    margin: 1.6rem 0 0;
+  }
+`;
+
+const Color = styled.li`
+  flex: 1;
+  list-style: none;
+
+  height: 0.4rem;
+  background-color: ${({ color }) => color};
+`;
+
+export {
+  Main,
+  AboutSection,
+  ListSection,
+  TechItem,
+  GridItem,
+  GridList,
+  Contact,
+  Footer,
+  Color,
+};
