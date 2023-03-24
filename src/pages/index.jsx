@@ -11,6 +11,8 @@ import {
   GridList,
   GridItem,
   Contact,
+  Footer,
+  Color,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
@@ -27,8 +29,9 @@ export default function Home() {
       linkedinSVG,
       githubSVG,
       devSVG,
+      logoSVG,
     },
-    colors: { primary, office, highlight },
+    colors: { primary, office, highlight, secundary, tertiary, quaternary },
     name: theme,
   } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
@@ -170,6 +173,20 @@ export default function Home() {
     }
   }, [isMobile, saberLeft, saberRight, theme]);
 
+  const actualYear = useMemo(() => new Date().getFullYear(), []);
+
+  const colors = useMemo(
+    () => (
+      <>
+        <Color color={primary} />
+        <Color color={secundary} />
+        <Color color={tertiary} />
+        <Color color={quaternary} />
+      </>
+    ),
+    [primary, secundary, tertiary, quaternary]
+  );
+
   return (
     <>
       <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
@@ -250,6 +267,17 @@ export default function Home() {
 
           <ul>{socials}</ul>
         </Contact>
+
+        <Footer>
+          <div>
+            <div>
+              <Image src={logoSVG} alt="Rafa Dev" />
+              Copyright © {actualYear} Rafael Domingues
+            </div>
+          </div>
+
+          <ul>{colors}</ul>
+        </Footer>
       </Main>
     </>
   );

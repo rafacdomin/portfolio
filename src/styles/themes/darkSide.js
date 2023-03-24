@@ -16,6 +16,8 @@ const darkSide = {
   colors: {
     primary: colors.red,
     secundary: colors.c3po,
+    tertiary: colors.jabba,
+    quaternary: colors.coruscant,
     highlight: colors.red,
     text: colors.stormtrooper,
     background: colors.vader,

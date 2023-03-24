@@ -17,6 +17,8 @@ const brightSide = {
   colors: {
     primary: colors.blue,
     secundary: colors.rebels,
+    tertiary: colors.green,
+    quaternary: colors.windu,
     highlight: colors.green,
     text: colors.black,
     background: colors.white,
