@@ -106,12 +106,25 @@ const ListSection = styled.section`
     width: 100%;
   }
 
-  h1 {
+  > div {
     display: flex;
-    align-items: flex-start;
+    justify-content: space-between;
 
-    img {
-      margin-left: 0.8rem;
+    h1 {
+      display: flex;
+      align-items: flex-start;
+
+      img {
+        margin-left: 0.8rem;
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+      color: ${({ theme }) => theme.colors.secundary};
+
+      text-align: end;
     }
   }
 
@@ -139,14 +152,6 @@ const ListSection = styled.section`
         margin-left: 2.4rem;
       }
     }
-  }
-
-  > a {
-    display: block;
-    text-decoration: none;
-    color: ${({ theme }) => theme.colors.secundary};
-
-    text-align: end;
   }
 `;
 

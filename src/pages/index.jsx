@@ -225,21 +225,25 @@ export default function Home() {
         </ListSection>
 
         <ListSection id="projects">
-          <h1>
-            Projects <Image src={projectsSVG} alt="" />
-          </h1>
+          <div>
+            <h1>
+              Projects <Image src={projectsSVG} alt="" />
+            </h1>
+            <a href="">See more --&gt;</a>
+          </div>
 
           <GridList>{projectsElements}</GridList>
-          <a href="">See more --&gt;</a>
         </ListSection>
 
         <ListSection id="posts">
-          <h1>
-            Posts <Image src={postsSVG} alt="" />
-          </h1>
+          <div>
+            <h1>
+              Posts <Image src={postsSVG} alt="" />
+            </h1>
+            <a href="">See more --&gt;</a>
+          </div>
 
           <GridList>{projectsElements}</GridList>
-          <a href="">See more --&gt;</a>
         </ListSection>
 
         <Contact id="contact">
