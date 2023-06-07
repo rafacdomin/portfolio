@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { lighten } from 'polished';
 
-const ButtonStyled = styled.button`
+export const ButtonStyled = styled.button`
   border: none;
   background-color: ${({ backgroundColor }) => backgroundColor};
   color: ${({ color }) => color};
@@ -20,5 +20,3 @@ const ButtonStyled = styled.button`
     transform: translateY(-2px);
   }
 `;
-
-export { ButtonStyled };

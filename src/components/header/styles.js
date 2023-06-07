@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import { sizes } from 'styles/sizes';
 
-const HeaderContainer = styled.header`
+export const HeaderContainer = styled.header`
   display: flex;
   align-items: center;
   justify-content: center;
@@ -27,7 +27,7 @@ const HeaderContainer = styled.header`
   }
 `;
 
-const HeaderNav = styled.nav`
+export const HeaderNav = styled.nav`
   margin-left: auto;
   display: flex;
   align-items: center;
@@ -50,7 +50,7 @@ const HeaderNav = styled.nav`
   }
 `;
 
-const NavList = styled.ul`
+export const NavList = styled.ul`
   display: none;
 
   @media (min-width: ${sizes.desktop_sm}px) {
@@ -73,5 +73,3 @@ const NavList = styled.ul`
     }
   } ;
 `;
-
-export { HeaderContainer, HeaderNav, NavList };

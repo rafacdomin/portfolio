@@ -2,17 +2,14 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Image from 'next/image';
 
-import { Button, Header, SEO } from 'components';
+import { Button, Header, SEO, Footer, ListSection } from 'components';
 import {
   Main,
   AboutSection,
   TechItem,
-  ListSection,
   GridList,
   GridItem,
   Contact,
-  Footer,
-  Color,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
@@ -20,18 +17,14 @@ export default function Home() {
   const {
     images: {
       profilePic,
-      techsSVG,
-      projectsSVG,
-      postsSVG,
       contactSVG,
       saberLeft,
       saberRight,
       linkedinSVG,
       githubSVG,
       devSVG,
-      logoSVG,
     },
-    colors: { primary, office, highlight, secundary, tertiary, quaternary },
+    colors: { highlight },
     name: theme,
   } = useTheme();
   const [isMobile, setIsMobile] = useState(false);
@@ -173,20 +166,6 @@ export default function Home() {
     }
   }, [isMobile, saberLeft, saberRight, theme]);
 
-  const actualYear = useMemo(() => new Date().getFullYear(), []);
-
-  const colors = useMemo(
-    () => (
-      <>
-        <Color color={primary} />
-        <Color color={secundary} />
-        <Color color={tertiary} />
-        <Color color={quaternary} />
-      </>
-    ),
-    [primary, secundary, tertiary, quaternary]
-  );
-
   return (
     <>
       <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
@@ -204,45 +183,26 @@ export default function Home() {
             <small>
               and {theme === 'bright' ? 'Jedi Master' : 'Sith Lord'}
             </small>
+
             <p>
               Currently based in Rio de Janeiro, Brazil, Planet Earth. Working
               with the development and improvement of a Design System and, in
               the meantime, helping the galaxy find peace.
             </p>
 
-            <Button type="button" color={office} backgroundColor={primary}>
-              Get in touch 🤘
-            </Button>
+            <ul>{socials}</ul>
           </span>
         </AboutSection>
 
-        <ListSection id="techs">
-          <h1>
-            Techs <Image src={techsSVG} alt="" />
-          </h1>
-
+        <ListSection id="techs" title="Techs" url="">
           <ul>{techsImages}</ul>
         </ListSection>
 
-        <ListSection id="projects">
-          <div>
-            <h1>
-              Projects <Image src={projectsSVG} alt="" />
-            </h1>
-            <a href="">See more --&gt;</a>
-          </div>
-
+        <ListSection id="projects" title="Projects" url="">
           <GridList>{projectsElements}</GridList>
         </ListSection>
 
-        <ListSection id="posts">
-          <div>
-            <h1>
-              Posts <Image src={postsSVG} alt="" />
-            </h1>
-            <a href="">See more --&gt;</a>
-          </div>
-
+        <ListSection id="posts" title="Posts" url="">
           <GridList>{projectsElements}</GridList>
         </ListSection>
 
@@ -262,7 +222,7 @@ export default function Home() {
             <label htmlFor="message">Message</label>
             <textarea rows="8" cols="50" id="message" name="message" />
 
-            <Button type="submit" backgroundColor={highlight} color={'white'}>
+            <Button type="submit" backgroundColor={highlight} color="white">
               Send
             </Button>
           </form>
@@ -271,18 +231,8 @@ export default function Home() {
 
           <ul>{socials}</ul>
         </Contact>
-
-        <Footer>
-          <div>
-            <div>
-              <Image src={logoSVG} alt="Rafa Dev" />
-              Copyright © {actualYear} Rafael Domingues
-            </div>
-          </div>
-
-          <ul>{colors}</ul>
-        </Footer>
       </Main>
+      <Footer />
     </>
   );
 }

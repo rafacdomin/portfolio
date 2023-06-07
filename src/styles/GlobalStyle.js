@@ -1,4 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
+import { sizes } from './sizes';
 
 export default createGlobalStyle`
   :root {
@@ -25,14 +26,14 @@ export default createGlobalStyle`
 
   h1,h2,h3,h4,h5,h6, strong {
     font-family: 'Barlow', Arial, Helvetica, sans-serif;
-    font-weight: 500;
+    font-weight: 600;
   }
 
   button{
     cursor: pointer;
   }
 
-  @media (min-width: 1024px) {
+  @media (min-width: ${sizes.desktop_sm}px) {
     :root {
       font-size: 62.5%;
     }

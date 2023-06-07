@@ -12,7 +12,7 @@ const Main = styled.main`
     flex: 1;
     width: 100%;
     max-width: ${sizes.desktop_md}px;
-    margin: 1.6rem 0 0 0;
+    margin: 8rem 0 0 0;
     padding: 0 2.4rem;
 
     @media (min-width: ${sizes.desktop_sm}px) {
@@ -20,7 +20,7 @@ const Main = styled.main`
       flex-direction: column;
       align-items: center;
 
-      margin: 3.2rem 0 0 0;
+      margin: 10.4rem 0 0 0;
     }
   }
 `;
@@ -29,7 +29,7 @@ const AboutSection = styled.section`
   flex-direction: row !important;
   position: relative;
 
-  img {
+  > img {
     width: 48vw;
     height: 48vw;
 
@@ -37,13 +37,29 @@ const AboutSection = styled.section`
     max-height: 32rem;
 
     border-radius: 50%;
-    border: 1px solid ${({ theme }) => theme.colors.primary};
+    border: 2px solid ${({ theme }) => theme.colors.primary};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     position: absolute;
     right: 0;
-
     z-index: -1;
+
+    -webkit-animation: morph 8s ease-in-out infinite;
+    animation: morph 4s ease-in-out infinite;
+    transition: all 1s ease-in-out;
+
+    @keyframes morph {
+      0% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+      }
+
+      50% {
+        border-radius: 45% 75% 85% 55%/65% 75% 45% 75%;
+      }
+      100% {
+        border-radius: 60% 40% 30% 70%/60% 30% 70% 40%;
+      }
+    }
 
     @media (min-width: ${sizes.desktop_sm}px) {
       position: unset;
@@ -59,28 +75,6 @@ const AboutSection = styled.section`
 
     margin-top: 10rem;
 
-    h1 > span {
-      padding: 0.2rem 0.8rem;
-      background-color: ${({ theme }) => theme.colors.primary};
-      color: ${({ theme }) => theme.colors.office};
-
-      line-height: 4rem;
-    }
-
-    small {
-      margin: 0.4rem 0 0 12rem;
-      color: ${({ theme }) => theme.colors.highlight};
-      text-decoration: line-through;
-
-      @media (min-width: ${sizes.mobile_sm}px) {
-        margin: 0.4rem 0 0 16rem;
-      }
-    }
-
-    button {
-      margin: 1.6rem 0 0 0;
-    }
-
     @media (min-width: ${sizes.mobile_lg}px) {
       margin-top: 26vw;
     }
@@ -88,68 +82,61 @@ const AboutSection = styled.section`
     @media (min-width: 500px) {
       margin-top: 8rem;
       min-width: 27rem;
-      max-width: 48vw;
+      max-width: 64vw;
     }
 
     @media (min-width: ${sizes.desktop_sm}px) {
       margin: 0 0 0 8rem;
       max-width: unset;
     }
-  }
-`;
-
-const ListSection = styled.section`
-  padding: 0 !important;
-
-  & > * {
-    padding: 0 2.4rem;
-    width: 100%;
-  }
-
-  > div {
-    display: flex;
-    justify-content: space-between;
 
     h1 {
-      display: flex;
-      align-items: flex-start;
+      > span {
+        padding: 0.2rem 0.8rem;
+        background-color: ${({ theme }) => theme.colors.primary};
+        color: ${({ theme }) => theme.colors.office};
 
-      img {
-        margin-left: 0.8rem;
+        line-height: 4rem;
+      }
+
+      @media (min-width: ${sizes.mobile_md}px) {
+        font-size: 3.2rem;
       }
     }
 
-    a {
-      display: block;
-      text-decoration: none;
-      color: ${({ theme }) => theme.colors.secundary};
-
-      text-align: end;
-    }
-  }
-
-  ul {
-    display: flex;
-    list-style: none;
-
-    overflow-x: scroll;
-
-    padding: 1.6rem;
-    @media (min-width: ${sizes.desktop_sm}px) {
-      padding: 2.4rem;
+    p {
+      margin: 2rem 0;
+      line-height: 2.4rem;
     }
 
-    &::-webkit-scrollbar {
-      display: none;
+    small {
+      margin: 0 0 0 12rem;
+      color: ${({ theme }) => theme.colors.highlight};
+      text-decoration: line-through;
+
+      @media (min-width: ${sizes.mobile_md}px) {
+        margin: 0 0 0 21rem;
+      }
     }
-    -ms-overflow-style: none; /* IE and Edge */
-    scrollbar-width: none; /* Firefox */
 
-    li + li {
-      margin-left: 1.6rem;
+    ul {
+      margin: 1.6rem 0 0 0;
+      list-style: none;
+      display: flex;
 
-      @media (min-width: ${sizes.desktop_sm}px) {
-        margin-left: 2.4rem;
+      align-items: center;
+      justify-content: flex-start;
+
+      li {
+        transition: all 0.2s;
+
+        &:hover {
+          transform: scale(1.1);
+        }
+
+        & + li {
+          margin-left: 1.6rem;
+        }
       }
     }
   }
@@ -163,9 +150,9 @@ const TechItem = styled.a`
   text-decoration: none;
   color: inherit;
 
-  transition: transform 0.5s;
+  transition: all 0.5s;
   &:hover {
-    transform: translateY(-2px);
+    transform: scale(1.1);
 
     img {
       filter: brightness(0.8);
@@ -180,7 +167,7 @@ const TechItem = styled.a`
 
     width: 8rem;
     height: 8rem;
-    transition: filter 0.5s;
+    transition: all 0.5s;
 
     @media (min-width: ${sizes.desktop_sm}px) {
       width: 10rem;
@@ -198,7 +185,7 @@ const GridItem = styled.a`
   text-decoration: none;
   color: inherit;
 
-  transition: transform 0.5s;
+  transition: all 0.5s;
   &:hover {
     transform: translateY(-2px);
 
@@ -215,7 +202,7 @@ const GridItem = styled.a`
 
     border-radius: 0.8rem;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
-    transition: filter 0.5s;
+    transition: all 0.5s;
 
     @media (min-width: ${sizes.desktop_sm}px) {
       width: 100%;
@@ -330,10 +317,10 @@ const Contact = styled.section`
     justify-content: center;
 
     li {
-      transition: transform 0.2s;
+      transition: all 0.2s;
 
       &:hover {
-        transform: translateY(-2px);
+        transform: scale(1.1);
       }
 
       & + li {
@@ -343,49 +330,4 @@ const Contact = styled.section`
   }
 `;
 
-const Footer = styled.footer`
-  width: 100%;
-
-  > div {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-
-    div {
-      flex: 1;
-      margin: 1.6rem 2.4rem 0;
-      max-width: ${sizes.desktop_md}px;
-
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-
-      font-size: 1.2rem;
-    }
-  }
-
-  ul {
-    display: flex;
-    margin: 1.6rem 0 0;
-  }
-`;
-
-const Color = styled.li`
-  flex: 1;
-  list-style: none;
-
-  height: 0.4rem;
-  background-color: ${({ color }) => color};
-`;
-
-export {
-  Main,
-  AboutSection,
-  ListSection,
-  TechItem,
-  GridItem,
-  GridList,
-  Contact,
-  Footer,
-  Color,
-};
+export { Main, AboutSection, TechItem, GridItem, GridList, Contact };
