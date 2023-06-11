@@ -221,9 +221,25 @@ export const ContactSection = styled.section`
   }
 `;
 
+export const ContactAnimation = styled.div`
+  svg {
+    display: none;
+    transform: scaleX(-1) !important;
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      display: unset;
+    }
+  }
+`;
+
 export const ContactForm = styled.form`
+  width: 100%;
   display: flex;
   flex-direction: column;
+
+  @media (min-width: ${sizes.desktop_sm}px) {
+    margin-left: 2.4rem;
+  }
 
   input,
   textarea {

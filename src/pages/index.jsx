@@ -1,7 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Image from 'next/image';
+import Lottie from 'lottie-react';
 
+import babyYodaAnimation from 'lottie/baby-yoda.json';
 import {
   Button,
   Header,
@@ -20,6 +22,7 @@ import {
   ContactSection,
   ContactForm,
   ProjectsSection,
+  ContactAnimation,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
@@ -245,17 +248,21 @@ export default function Home() {
             media.
           </p>
 
-          <ContactForm action="">
-            <label htmlFor="email">Your Best Email</label>
-            <input type="email" id="email" name="email" />
+          <ContactAnimation>
+            <Lottie animationData={babyYodaAnimation} loop />
 
-            <label htmlFor="message">Message</label>
-            <textarea rows="8" cols="50" id="message" name="message" />
+            <ContactForm action="">
+              <label htmlFor="email">Your Best Email</label>
+              <input type="email" id="email" name="email" />
 
-            <Button type="submit" backgroundColor={highlight} color="white">
-              Send
-            </Button>
-          </ContactForm>
+              <label htmlFor="message">Message</label>
+              <textarea rows="8" cols="50" id="message" name="message" />
+
+              <Button type="submit" backgroundColor={highlight} color="white">
+                Send
+              </Button>
+            </ContactForm>
+          </ContactAnimation>
 
           <div>{sabers}</div>
           <ul>{socials}</ul>
