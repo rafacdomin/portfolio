@@ -2,8 +2,6 @@ import styled from 'styled-components';
 import { sizes } from 'styles/sizes';
 
 export const Section = styled.section`
-  padding: 0 !important;
-
   & > * {
     padding: 0 2.4rem;
     width: 100%;

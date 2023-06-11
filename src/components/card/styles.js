@@ -8,7 +8,7 @@ export const Container = styled.div`
   height: 64rem;
   width: 32rem;
 
-  border-radius: 1.6rem;
+  border-radius: 0.8rem;
   padding: 1.6rem;
   background-color: #fff;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
@@ -27,7 +27,7 @@ export const Container = styled.div`
 export const ImageExample = styled.a`
   grid-area: content1;
   overflow: hidden;
-  border-radius: 1.6rem;
+  border-radius: 0.8rem;
   height: 24rem;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
 

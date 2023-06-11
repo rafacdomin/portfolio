@@ -2,15 +2,24 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Image from 'next/image';
 
-import { Button, Header, SEO, Footer, ListSection, Card } from 'components';
+import {
+  Button,
+  Header,
+  SEO,
+  Footer,
+  ListSection,
+  Card,
+  TechItem,
+  GridItem,
+} from 'components';
 import {
   Main,
   AboutSection,
-  TechItem,
+  AboutContent,
   GridList,
-  GridItem,
-  Contact,
-  CardSection,
+  ContactSection,
+  ContactForm,
+  ProjectsSection,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
@@ -80,12 +89,9 @@ export default function Home() {
       },
     ];
 
-    return techs.map((tech) => (
-      <li key={tech.name}>
-        <TechItem href={tech.url} target="_blank" rel="external noreferrer">
-          <Image src={tech.image} alt={tech.name} width={80} height={80} />
-          {tech.name}
-        </TechItem>
+    return techs.map(({ name, image, url }) => (
+      <li key={name}>
+        <TechItem name={name} image={image} url={url} />
       </li>
     ));
   }, []);
@@ -112,12 +118,9 @@ export default function Home() {
       },
     ];
 
-    return projects.slice(0, 4).map((project) => (
-      <li key={project.url}>
-        <GridItem href={project.url} target="_blank" rel="external noreferrer">
-          <Image src={project.image} alt="" width={1200} height={630} />
-          <span>{project.title}</span>
-        </GridItem>
+    return projects.slice(0, 4).map(({ title, image, url }) => (
+      <li key={url}>
+        <GridItem title={title} image={image} url={url} />
       </li>
     ));
   }, []);
@@ -174,7 +177,7 @@ export default function Home() {
       <Main>
         <AboutSection id="about">
           <Image src={profilePic} alt="profile" priority />
-          <span>
+          <AboutContent>
             <h1>
               Hello There. <br />
               {isMobile ? "I'm Rafael," : 'I am Rafael Domingues,'}
@@ -192,14 +195,14 @@ export default function Home() {
             </p>
 
             <ul>{socials}</ul>
-          </span>
+          </AboutContent>
         </AboutSection>
 
         <ListSection id="techs" title="Techs" url="">
           <ul>{techsImages}</ul>
         </ListSection>
 
-        <CardSection id="projects">
+        <ProjectsSection id="projects">
           <div>
             <h2>Projects</h2>
             <p>Some of my most recents projects</p>
@@ -227,13 +230,13 @@ export default function Home() {
               />
             </li>
           </ul>
-        </CardSection>
+        </ProjectsSection>
 
         <ListSection id="posts" title="Posts" url="">
           <GridList>{projectsElements}</GridList>
         </ListSection>
 
-        <Contact id="contact">
+        <ContactSection id="contact">
           <h1>
             {"Let's get in touch!"} <Image src={contactSVG} alt="" />
           </h1>
@@ -242,7 +245,7 @@ export default function Home() {
             media.
           </p>
 
-          <form action="">
+          <ContactForm action="">
             <label htmlFor="email">Your Best Email</label>
             <input type="email" id="email" name="email" />
 
@@ -252,12 +255,11 @@ export default function Home() {
             <Button type="submit" backgroundColor={highlight} color="white">
               Send
             </Button>
-          </form>
+          </ContactForm>
 
           <div>{sabers}</div>
-
           <ul>{socials}</ul>
-        </Contact>
+        </ContactSection>
       </Main>
       <Footer />
     </>

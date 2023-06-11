@@ -1,19 +1,16 @@
 import styled from 'styled-components';
 import { sizes } from 'styles/sizes';
-import { colors } from 'styles/colors';
 
-const Main = styled.main`
+export const Main = styled.main`
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
 
   section {
-    flex: 1;
     width: 100%;
     max-width: ${sizes.desktop_md}px;
     margin: 8rem 0 0 0;
-    padding: 0 2.4rem;
 
     @media (min-width: ${sizes.desktop_sm}px) {
       display: flex;
@@ -24,7 +21,8 @@ const Main = styled.main`
   }
 `;
 
-const AboutSection = styled.section`
+export const AboutSection = styled.section`
+  padding: 0 2.4rem;
   flex-direction: row !important;
   position: relative;
 
@@ -67,163 +65,81 @@ const AboutSection = styled.section`
       height: 28rem;
     }
   }
+`;
 
-  > span {
+export const AboutContent = styled.span`
+  display: flex;
+  flex-direction: column;
+
+  margin-top: 10rem;
+
+  @media (min-width: ${sizes.mobile_lg}px) {
+    margin-top: 26vw;
+  }
+
+  @media (min-width: 500px) {
+    margin-top: 8rem;
+    min-width: 27rem;
+    max-width: 64vw;
+  }
+
+  @media (min-width: ${sizes.desktop_sm}px) {
+    margin: 0 0 0 8rem;
+    max-width: unset;
+  }
+
+  h1 {
+    > span {
+      padding: 0.2rem 0.8rem;
+      background-color: ${({ theme }) => theme.colors.primary};
+      color: ${({ theme }) => theme.colors.office};
+
+      line-height: 4rem;
+    }
+
+    @media (min-width: ${sizes.mobile_md}px) {
+      font-size: 3.2rem;
+    }
+  }
+
+  p {
+    margin: 2rem 0;
+    line-height: 2.4rem;
+  }
+
+  small {
+    margin: 0 0 0 12rem;
+    color: ${({ theme }) => theme.colors.highlight};
+    text-decoration: line-through;
+
+    @media (min-width: ${sizes.mobile_md}px) {
+      margin: 0 0 0 21rem;
+    }
+  }
+
+  ul {
+    margin: 1.6rem 0 0 0;
+    list-style: none;
     display: flex;
-    flex-direction: column;
 
-    margin-top: 10rem;
+    align-items: center;
+    justify-content: flex-start;
 
-    @media (min-width: ${sizes.mobile_lg}px) {
-      margin-top: 26vw;
-    }
+    li {
+      transition: all 0.2s;
 
-    @media (min-width: 500px) {
-      margin-top: 8rem;
-      min-width: 27rem;
-      max-width: 64vw;
-    }
-
-    @media (min-width: ${sizes.desktop_sm}px) {
-      margin: 0 0 0 8rem;
-      max-width: unset;
-    }
-
-    h1 {
-      > span {
-        padding: 0.2rem 0.8rem;
-        background-color: ${({ theme }) => theme.colors.primary};
-        color: ${({ theme }) => theme.colors.office};
-
-        line-height: 4rem;
+      &:hover {
+        transform: scale(1.1);
       }
 
-      @media (min-width: ${sizes.mobile_md}px) {
-        font-size: 3.2rem;
-      }
-    }
-
-    p {
-      margin: 2rem 0;
-      line-height: 2.4rem;
-    }
-
-    small {
-      margin: 0 0 0 12rem;
-      color: ${({ theme }) => theme.colors.highlight};
-      text-decoration: line-through;
-
-      @media (min-width: ${sizes.mobile_md}px) {
-        margin: 0 0 0 21rem;
-      }
-    }
-
-    ul {
-      margin: 1.6rem 0 0 0;
-      list-style: none;
-      display: flex;
-
-      align-items: center;
-      justify-content: flex-start;
-
-      li {
-        transition: all 0.2s;
-
-        &:hover {
-          transform: scale(1.1);
-        }
-
-        & + li {
-          margin-left: 1.6rem;
-        }
+      & + li {
+        margin-left: 1.6rem;
       }
     }
   }
 `;
 
-const TechItem = styled.a`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-decoration: none;
-  color: inherit;
-
-  transition: all 0.5s;
-  &:hover {
-    transform: scale(1.1);
-
-    img {
-      filter: brightness(0.8);
-    }
-  }
-
-  img {
-    background: ${colors.dark};
-    padding: 0.8rem;
-    border-radius: 50%;
-    margin-bottom: 0.8rem;
-
-    width: 8rem;
-    height: 8rem;
-    transition: all 0.5s;
-
-    @media (min-width: ${sizes.desktop_sm}px) {
-      width: 10rem;
-      height: 10rem;
-    }
-  }
-`;
-
-const GridItem = styled.a`
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  text-decoration: none;
-  color: inherit;
-
-  transition: all 0.5s;
-  &:hover {
-    transform: translateY(-2px);
-
-    img {
-      filter: brightness(0.8);
-    }
-  }
-
-  img {
-    object-fit: cover;
-
-    width: 32rem;
-    height: 18rem;
-
-    border-radius: 0.8rem;
-    box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s;
-
-    @media (min-width: ${sizes.desktop_sm}px) {
-      width: 100%;
-      height: 24vw;
-      max-height: 240px;
-    }
-  }
-
-  span {
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
-
-    position: absolute;
-    bottom: 0;
-    border-radius: 0 0 0.8rem 0.8rem;
-
-    padding: 1.6rem 2.4rem;
-    color: ${colors.white};
-  }
-`;
-
-const GridList = styled.ul`
+export const GridList = styled.ul`
   @media (min-width: ${sizes.desktop_sm}px) {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
@@ -236,7 +152,8 @@ const GridList = styled.ul`
   }
 `;
 
-const Contact = styled.section`
+export const ContactSection = styled.section`
+  padding: 0 2.4rem;
   display: flex;
   flex-direction: column;
   align-items: unset !important;
@@ -258,31 +175,6 @@ const Contact = styled.section`
 
     @media (min-width: ${sizes.desktop_sm}px) {
       margin: 0.4rem 0 2.4rem;
-    }
-  }
-
-  form {
-    display: flex;
-    flex-direction: column;
-
-    input,
-    textarea {
-      margin: 0.4rem 0 0.8rem;
-      padding: 0.8rem;
-
-      border: 1px solid ${({ theme }) => theme.colors.primary};
-      border-radius: 0.4rem;
-
-      background-color: ${({ theme }) => theme.colors.background};
-      color: ${({ theme }) => theme.colors.text};
-
-      @media (min-width: ${sizes.desktop_sm}px) {
-        margin: 0.8rem 0 1.6rem;
-      }
-    }
-
-    button {
-      margin-left: auto;
     }
   }
 
@@ -329,9 +221,32 @@ const Contact = styled.section`
   }
 `;
 
-const CardSection = styled.section`
-  padding: 0 !important;
+export const ContactForm = styled.form`
+  display: flex;
+  flex-direction: column;
 
+  input,
+  textarea {
+    margin: 0.4rem 0 0.8rem;
+    padding: 0.8rem;
+
+    border: 1px solid ${({ theme }) => theme.colors.primary};
+    border-radius: 0.4rem;
+
+    background-color: ${({ theme }) => theme.colors.background};
+    color: ${({ theme }) => theme.colors.text};
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      margin: 0.8rem 0 1.6rem;
+    }
+  }
+
+  button {
+    margin-left: auto;
+  }
+`;
+
+export const ProjectsSection = styled.section`
   & > * {
     padding: 0 2.4rem;
   }
@@ -385,13 +300,3 @@ const CardSection = styled.section`
     }
   }
 `;
-
-export {
-  Main,
-  AboutSection,
-  TechItem,
-  GridItem,
-  GridList,
-  Contact,
-  CardSection,
-};
