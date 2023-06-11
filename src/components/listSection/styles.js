@@ -36,7 +36,7 @@ export const Section = styled.section`
     }
   }
 
-  ul {
+  > ul {
     display: flex;
     list-style: none;
 
@@ -53,7 +53,7 @@ export const Section = styled.section`
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 
-    li + li {
+    > li + li {
       margin-left: 1.6rem;
 
       @media (min-width: ${sizes.desktop_sm}px) {

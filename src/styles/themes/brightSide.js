@@ -11,6 +11,7 @@ import greenSaber from 'assets/bright/green_saber.svg';
 import linkedin from 'assets/bright/linkedin.svg';
 import github from 'assets/bright/github.svg';
 import dev from 'assets/bright/dev.svg';
+import externalLink from 'assets/bright/external_link.svg';
 
 const brightSide = {
   name: 'bright',
@@ -38,6 +39,7 @@ const brightSide = {
     linkedinSVG: linkedin,
     githubSVG: github,
     devSVG: dev,
+    externalLinkSVG: externalLink,
   },
 };
 

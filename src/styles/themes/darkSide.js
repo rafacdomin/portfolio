@@ -10,6 +10,7 @@ import redSaber from 'assets/dark/red_saber.svg';
 import linkedin from 'assets/dark/linkedin.svg';
 import github from 'assets/dark/github.svg';
 import dev from 'assets/dark/dev.svg';
+import externalLink from 'assets/dark/external_link.svg';
 
 const darkSide = {
   name: 'dark',
@@ -37,6 +38,7 @@ const darkSide = {
     linkedinSVG: linkedin,
     githubSVG: github,
     devSVG: dev,
+    externalLinkSVG: externalLink,
   },
 };
 

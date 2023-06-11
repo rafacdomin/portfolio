@@ -18,7 +18,6 @@ const Main = styled.main`
     @media (min-width: ${sizes.desktop_sm}px) {
       display: flex;
       flex-direction: column;
-      align-items: center;
 
       margin: 10.4rem 0 0 0;
     }
@@ -37,7 +36,7 @@ const AboutSection = styled.section`
     max-height: 32rem;
 
     border-radius: 50%;
-    border: 2px solid ${({ theme }) => theme.colors.primary};
+    border: 4px solid ${({ theme }) => theme.colors.primary};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 
     position: absolute;
@@ -197,8 +196,8 @@ const GridItem = styled.a`
   img {
     object-fit: cover;
 
-    width: 24rem;
-    height: 16rem;
+    width: 32rem;
+    height: 18rem;
 
     border-radius: 0.8rem;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
@@ -219,7 +218,7 @@ const GridItem = styled.a`
     bottom: 0;
     border-radius: 0 0 0.8rem 0.8rem;
 
-    padding: 16px 24px;
+    padding: 1.6rem 2.4rem;
     color: ${colors.white};
   }
 `;
@@ -228,8 +227,8 @@ const GridList = styled.ul`
   @media (min-width: ${sizes.desktop_sm}px) {
     display: grid !important;
     grid-template-columns: 1fr 1fr;
-    grid-column-gap: 24px;
-    grid-row-gap: 16px;
+    grid-column-gap: 2.4rem;
+    grid-row-gap: 1.6rem;
 
     li + li {
       margin-left: unset !important;
@@ -330,4 +329,69 @@ const Contact = styled.section`
   }
 `;
 
-export { Main, AboutSection, TechItem, GridItem, GridList, Contact };
+const CardSection = styled.section`
+  padding: 0 !important;
+
+  & > * {
+    padding: 0 2.4rem;
+  }
+
+  > div {
+    margin: 0 0 2.4rem;
+
+    h2 {
+      margin-bottom: 0.8rem;
+    }
+  }
+
+  > ul {
+    padding-bottom: 1.6rem;
+    list-style: none;
+    display: flex;
+
+    overflow-x: scroll;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+    -ms-overflow-style: none; /* IE and Edge */
+    scrollbar-width: none; /* Firefox */
+
+    @media (min-width: ${sizes.desktop_sm}px) {
+      flex-direction: column;
+
+      width: 100%;
+    }
+
+    li {
+      & + li {
+        margin-left: 1.6rem;
+
+        @media (min-width: ${sizes.desktop_sm}px) {
+          margin: 2.4rem 0 0;
+        }
+      }
+
+      &:nth-child(even) {
+        > div {
+          > a {
+            grid-area: content2;
+          }
+
+          > span {
+            grid-area: content1;
+          }
+        }
+      }
+    }
+  }
+`;
+
+export {
+  Main,
+  AboutSection,
+  TechItem,
+  GridItem,
+  GridList,
+  Contact,
+  CardSection,
+};

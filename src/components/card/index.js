@@ -1,9 +1,16 @@
-import React from 'react';
+import React, { useMemo } from 'react';
 import Image from 'next/image';
+import { useTheme } from 'styled-components';
 
-import {} from './styles';
+import {
+  Container,
+  Content,
+  TechList,
+  CallToAction,
+  ImageExample,
+} from './styles';
 
-export const Header = ({
+export const Card = ({
   image,
   title,
   description,
@@ -11,36 +18,43 @@ export const Header = ({
   githubURL,
   demoURL,
 }) => {
+  const {
+    images: { githubSVG, externalLinkSVG },
+    colors: { primary },
+  } = useTheme();
+
+  const techsList = useMemo(() => {
+    return techs
+      ? techs.map((tech) => (
+          <li key={tech.name}>
+            <a href={tech.url}>{tech.name}</a>
+          </li>
+        ))
+      : null;
+  }, [techs]);
+
   return (
-    <div>
-      <Image src="https://stefantopalovicdev.vercel.app/static/media/coindom-full.c5fef9ca2f47e52897f8.png" />
+    <Container>
+      <ImageExample href={demoURL} target="_blank" rel="noreferrer">
+        <Image width={100} height={100} src={image} alt={title} />
+      </ImageExample>
 
-      <span>
-        <h1>Title</h1>
+      <Content>
+        <h2>{title}</h2>
 
-        <p>
-          Description Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-          Integer at malesuada tortor, id fringilla lorem. Ut ac justo rhoncus
-          massa egestas iaculis. Vivamus eget orci et dolor imperdiet imperdiet
-          vitae sed lectus. In lobortis, odio ullamcorper iaculis venenatis,
-          urna nisl aliquam augue, ac posuere erat lectus dignissim leo.
-        </p>
+        <p>{description}</p>
 
-        <ul>
-          <li>tech</li>
-          <li>tech</li>
-          <li>tech</li>
-        </ul>
+        <TechList>{techsList}</TechList>
 
-        <div>
-          <a href="https://google.com" target="_blank" rel="noreferrer">
-            Live Demo
+        <CallToAction textColor={primary}>
+          <a href={demoURL} target="_blank" rel="noreferrer">
+            <Image src={externalLinkSVG} alt="Github" /> Live Demo
           </a>
-          <a href="https://github.com" target="_blank" rel="noreferrer">
-            Github
+          <a href={githubURL} target="_blank" rel="noreferrer">
+            <Image src={githubSVG} alt="Github" /> Github
           </a>
-        </div>
-      </span>
-    </div>
+        </CallToAction>
+      </Content>
+    </Container>
   );
 };

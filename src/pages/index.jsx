@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react';
 import { useTheme } from 'styled-components';
 import Image from 'next/image';
 
-import { Button, Header, SEO, Footer, ListSection } from 'components';
+import { Button, Header, SEO, Footer, ListSection, Card } from 'components';
 import {
   Main,
   AboutSection,
@@ -10,6 +10,7 @@ import {
   GridList,
   GridItem,
   Contact,
+  CardSection,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
@@ -198,9 +199,35 @@ export default function Home() {
           <ul>{techsImages}</ul>
         </ListSection>
 
-        <ListSection id="projects" title="Projects" url="">
-          <GridList>{projectsElements}</GridList>
-        </ListSection>
+        <CardSection id="projects">
+          <div>
+            <h2>Projects</h2>
+            <p>Some of my most recents projects</p>
+          </div>
+
+          <ul>
+            <li>
+              <Card
+                image="https://stefantopalovicdev.vercel.app/static/media/coindom-full.c5fef9ca2f47e52897f8.png"
+                title="How i created a query language for .git files (GQL)"
+                description="TLDR How i created a query language for.git files (GQL) GQL is aquery language with a syntax very similar to SQL with a tiny engine to perform queries on. git files. The engine has the functionality to deal with."
+                techs={[{ name: 'React', url: 'https://reactjs.org' }]}
+                githubURL="https://github.com/"
+                demoURL="https://github.com/"
+              />
+            </li>
+            <li>
+              <Card
+                image="https://stefantopalovicdev.vercel.app/static/media/coindom-full.c5fef9ca2f47e52897f8.png"
+                title="How i created a query language for .git files (GQL)"
+                description="TLDR How i created a query language for.git files (GQL) GQL is aquery language with a syntax very similar to SQL with a tiny engine to perform queries on. git files. The engine has the functionality to deal with."
+                techs={[{ name: 'React', url: 'https://reactjs.org' }]}
+                githubURL="https://github.com/"
+                demoURL="https://github.com/"
+              />
+            </li>
+          </ul>
+        </CardSection>
 
         <ListSection id="posts" title="Posts" url="">
           <GridList>{projectsElements}</GridList>
