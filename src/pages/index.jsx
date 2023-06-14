@@ -40,7 +40,7 @@ export default function Home() {
     colors: { highlight },
     name: theme,
   } = useTheme();
-  const [isMobile, setIsMobile] = useState(false);
+  const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
     const handleResize = () => {
