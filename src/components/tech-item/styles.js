@@ -10,7 +10,7 @@ export const TechLink = styled.a`
   text-decoration: none;
   color: inherit;
 
-  transition: all 0.5s;
+  transition: transform 0.5s;
   &:hover {
     transform: scale(1.1);
 

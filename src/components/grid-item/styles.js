@@ -11,7 +11,7 @@ export const GridLink = styled.a`
   text-decoration: none;
   color: inherit;
 
-  transition: all 0.5s;
+  transition: transform 0.5s;
   &:hover {
     transform: translateY(-2px);
 
@@ -28,7 +28,6 @@ export const GridLink = styled.a`
 
     border-radius: 0.8rem;
     box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
-    transition: all 0.5s;
 
     @media (min-width: ${sizes.desktop_sm}px) {
       width: 100%;

@@ -99,15 +99,14 @@ export const CallToAction = styled.div`
     font-size: 1.4rem;
     text-decoration: none;
     color: ${({ theme }) => theme.colors.primary};
-
-    transition: all 0.5s;
-
-    &:hover {
-      border: 1px solid ${({ theme }) => theme.colors.primary}};
+    transition: border-color 0.5s;
+    
+    & + a {
+      margin-left: 1.6rem !important;
     }
 
-    & + a {
-      margin-left: 1.6rem;
+    &:hover {
+      border-color: ${({ theme }) => theme.colors.primary}};
     }
 
     img {

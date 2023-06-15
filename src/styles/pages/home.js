@@ -43,7 +43,7 @@ export const AboutSection = styled.section`
 
     -webkit-animation: morph 8s ease-in-out infinite;
     animation: morph 4s ease-in-out infinite;
-    transition: all 1s ease-in-out;
+    transition: border-radius 1s ease-in-out;
 
     @keyframes morph {
       0% {
@@ -126,14 +126,18 @@ export const AboutContent = styled.span`
     justify-content: flex-start;
 
     li {
-      transition: all 0.2s;
+      transition: transform 0.2s;
 
       &:hover {
         transform: scale(1.1);
       }
 
       & + li {
-        margin-left: 1.6rem;
+        margin-left: 0.8rem;
+      }
+
+      a {
+        padding: 0.8rem;
       }
     }
   }
@@ -208,14 +212,18 @@ export const ContactSection = styled.section`
     justify-content: center;
 
     li {
-      transition: all 0.2s;
+      transition: transform 0.2s;
 
       &:hover {
         transform: scale(1.1);
       }
 
       & + li {
-        margin-left: 1.6rem;
+        margin-left: 0.8rem;
+      }
+
+      a {
+        padding: 0.8rem;
       }
     }
   }
