@@ -69,17 +69,22 @@ export const TechList = styled.ul`
   display: flex;
 
   li {
+    transition: transform 0.5s;
+
+    &:hover {
+      transform: translateY(-2px);
+    }
+
     & + li {
-      margin-left: 0.8rem;
+      margin: 0 0 0 0.8rem !important;
     }
 
     a {
-      display: block;
-      background-color: ${colors.c3po};
+      background-color: ${({ theme }) => theme.colors.secundary};
+      color: ${({ theme }) => theme.colors.background};
       padding: 0.4rem 1.6rem;
       border-radius: 0.4rem;
       text-decoration: none;
-      color: ${colors.dark};
     }
   }
 `;
