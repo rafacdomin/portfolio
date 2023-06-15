@@ -10,17 +10,18 @@ export const Container = styled.div`
 
   border-radius: 0.8rem;
   padding: 1.6rem;
-  background-color: #fff;
+  background-color: ${({ theme }) => theme.colors.card};
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
 
-  @media (min-width: ${sizes.desktop_sm}px) {
+  @media (min-width: ${sizes.desktop_md}px) {
     display: grid;
     grid-template-columns: 1fr 1fr;
     grid-template-areas: 'content1 content2';
-    grid-gap: 1.6rem;
+    grid-gap: 2.4rem;
 
     width: 100%;
-    height: 32rem;
+    height: 40rem;
+    padding: 2.4rem;
   }
 `;
 
@@ -35,13 +36,13 @@ export const ImageExample = styled.a`
     width: 100%;
     height: auto;
 
-    /* transition: transform 8s; */
+    transition: transform 8s;
     &:hover {
-      transform: translateY(-40rem);
+      transform: translateY(-65%);
     }
   }
 
-  @media (min-width: ${sizes.desktop_sm}px) {
+  @media (min-width: ${sizes.desktop_md}px) {
     height: auto;
   }
 `;
@@ -56,6 +57,10 @@ export const Content = styled.span`
   p {
     padding: 1.6rem 0;
     line-height: 2.2rem;
+  }
+
+  @media (min-width: ${sizes.desktop_md}px) {
+    margin: 0;
   }
 `;
 
@@ -80,19 +85,35 @@ export const TechList = styled.ul`
 `;
 
 export const CallToAction = styled.div`
+  display: flex;
   margin: auto 0 0;
 
   a {
+    display: flex;
+    align-items: center;
+
+    padding: 0.4rem 0.8rem;
+    border: 1px solid transparent;
+    border-radius: 0.4rem;
+
+    font-size: 1.4rem;
     text-decoration: none;
-    color: ${({ textColor }) => textColor};
+    color: ${({ theme }) => theme.colors.primary};
+
+    transition: all 0.5s;
+
+    &:hover {
+      border: 1px solid ${({ theme }) => theme.colors.primary}};
+    }
 
     & + a {
-      margin-left: 2.4rem;
+      margin-left: 1.6rem;
     }
 
     img {
-      width: 2.4rem;
-      height: 2.4rem;
+      margin-right: 0.4rem;
+      width: 1.8rem;
+      height: 1.8rem;
     }
   }
 `;

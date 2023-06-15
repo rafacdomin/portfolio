@@ -22,6 +22,7 @@ const darkSide = {
     highlight: colors.red,
     text: colors.stormtrooper,
     background: colors.vader,
+    card: colors.dark,
     header: colors.dark,
     office: colors.c3po,
   },

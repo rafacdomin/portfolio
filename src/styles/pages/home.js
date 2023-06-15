@@ -249,7 +249,7 @@ export const ContactForm = styled.form`
     border: 1px solid ${({ theme }) => theme.colors.primary};
     border-radius: 0.4rem;
 
-    background-color: ${({ theme }) => theme.colors.background};
+    background-color: ${({ theme }) => theme.colors.card};
     color: ${({ theme }) => theme.colors.text};
 
     @media (min-width: ${sizes.desktop_sm}px) {
@@ -287,7 +287,7 @@ export const ProjectsSection = styled.section`
     -ms-overflow-style: none; /* IE and Edge */
     scrollbar-width: none; /* Firefox */
 
-    @media (min-width: ${sizes.desktop_sm}px) {
+    @media (min-width: ${sizes.desktop_md}px) {
       flex-direction: column;
 
       width: 100%;
@@ -297,7 +297,7 @@ export const ProjectsSection = styled.section`
       & + li {
         margin-left: 1.6rem;
 
-        @media (min-width: ${sizes.desktop_sm}px) {
+        @media (min-width: ${sizes.desktop_md}px) {
           margin: 2.4rem 0 0;
         }
       }

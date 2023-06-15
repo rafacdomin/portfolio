@@ -20,7 +20,6 @@ export const Card = ({
 }) => {
   const {
     images: { githubSVG, externalLinkSVG },
-    colors: { primary },
   } = useTheme();
 
   const techsList = useMemo(() => {
@@ -46,7 +45,7 @@ export const Card = ({
 
         <TechList>{techsList}</TechList>
 
-        <CallToAction textColor={primary}>
+        <CallToAction>
           <a href={demoURL} target="_blank" rel="noreferrer">
             <Image src={externalLinkSVG} alt="Github" /> Live Demo
           </a>
