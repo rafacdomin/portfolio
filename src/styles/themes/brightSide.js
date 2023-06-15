@@ -12,6 +12,7 @@ import linkedin from 'assets/bright/linkedin.svg';
 import github from 'assets/bright/github.svg';
 import dev from 'assets/bright/dev.svg';
 import externalLink from 'assets/bright/external_link.svg';
+import theme from 'assets/bright/theme.svg';
 
 const brightSide = {
   name: 'bright',
@@ -30,6 +31,7 @@ const brightSide = {
   images: {
     menuSVG: menuSVGBright,
     logoSVG: logoSVGBright,
+    themeSVG: theme,
     profilePic: profilePicBright,
     techsSVG: milleniumFalcon,
     projectsSVG: c3po,

@@ -8,14 +8,13 @@ export default function MyApp({ Component, pageProps }) {
   const [darkMode, setDarkMode] = useState(false);
 
   function changeTheme() {
-    setDarkMode(state => !state);
+    setDarkMode((state) => !state);
   }
 
   return (
-    <ThemeProvider theme={darkMode ? darkSide : brightSide} >
+    <ThemeProvider theme={darkMode ? darkSide : brightSide}>
       <GlobalStyle />
-      <button onClick={changeTheme}>Change Theme</button>
-      <Component {...pageProps} />
+      <Component {...pageProps} changeTheme={changeTheme} />
     </ThemeProvider>
   );
 }

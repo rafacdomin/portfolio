@@ -11,6 +11,7 @@ import linkedin from 'assets/dark/linkedin.svg';
 import github from 'assets/dark/github.svg';
 import dev from 'assets/dark/dev.svg';
 import externalLink from 'assets/dark/external_link.svg';
+import theme from 'assets/dark/theme.svg';
 
 const darkSide = {
   name: 'dark',
@@ -29,6 +30,7 @@ const darkSide = {
   images: {
     menuSVG: menuSVGDark,
     logoSVG: logoSVGDark,
+    themeSVG: theme,
     profilePic: profilePicDark,
     techsSVG: deathStar,
     projectsSVG: trooper,

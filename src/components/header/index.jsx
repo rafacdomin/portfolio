@@ -4,25 +4,27 @@ import { useTheme } from 'styled-components';
 
 import { HeaderContainer, HeaderNav, NavList } from './styles';
 
-export const Header = () => {
+export const Header = ({ changeTheme }) => {
   const {
-    images: { logoSVG, menuSVG },
+    images: { logoSVG, menuSVG, themeSVG },
   } = useTheme();
 
   const NavItems = () => {
     const navArray = [
-      { children: 'About', href: '#about', type: 'a' },
-      { children: 'Projects', href: '#projects', type: 'a' },
-      { children: 'Posts', href: '#posts', type: 'a' },
-      { children: 'Contact', href: '#contact', type: 'a' },
+      { children: 'About', href: '#about', element: 'a' },
+      { children: 'Projects', href: '#projects', element: 'a' },
+      { children: 'Posts', href: '#posts', element: 'a' },
+      { children: 'Contact', href: '#contact', element: 'a' },
       {
-        children: <Image src={menuSVG} alt="menu" />,
+        children: <Image src={themeSVG} alt="menu" />,
+        element: 'button',
         type: 'button',
+        onClick: () => changeTheme(),
       },
     ];
 
-    return navArray.map(({ type, ...props }) => (
-      <li key={props.children}>{React.createElement(type, props)}</li>
+    return navArray.map(({ element, ...props }) => (
+      <li key={props.children}>{React.createElement(element, props)}</li>
     ));
   };
 
@@ -35,7 +37,7 @@ export const Header = () => {
             <NavItems />
           </NavList>
 
-          <button>
+          <button type="button" onClick={() => {}}>
             <Image src={menuSVG} alt="menu" />
           </button>
         </HeaderNav>

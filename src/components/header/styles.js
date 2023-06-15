@@ -60,11 +60,11 @@ export const NavList = styled.ul`
 
     li {
       a {
+        display: block;
+        padding: 0.4rem;
         text-decoration: none;
         color: inherit;
         font-family: inherit;
-
-        padding: 0.8rem;
       }
 
       & + li {

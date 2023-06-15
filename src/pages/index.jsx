@@ -26,7 +26,7 @@ import {
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
-export default function Home() {
+export default function Home({ changeTheme }) {
   const {
     images: {
       profilePic,
@@ -176,7 +176,7 @@ export default function Home() {
   return (
     <>
       <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
-      <Header />
+      <Header changeTheme={changeTheme} />
       <Main>
         <AboutSection id="about">
           <Image src={profilePic} alt="profile" priority />
