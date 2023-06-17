@@ -3,8 +3,8 @@ import React, { useCallback } from 'react';
 import { Section } from './styles';
 import { Card } from 'components/card';
 
-export const ProjectsSection = ({ data, projects, ...props }) => {
-  const { title, description } = data ? data.fields : {};
+export const ProjectsSection = ({ fields, projects, ...props }) => {
+  const { title, description } = fields;
 
   const ProjectsList = useCallback(() => {
     return (

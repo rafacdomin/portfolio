@@ -2,13 +2,9 @@ import React from 'react';
 
 import { Section } from './styles';
 
-export const ListSection = ({
-  title,
-  description,
-  url,
-  children,
-  ...props
-}) => {
+export const ListSection = ({ fields, children, ...props }) => {
+  const { title, description } = fields;
+
   return (
     <Section {...props}>
       <div>

@@ -86,13 +86,8 @@ export default function Home({
 
         <ListSection
           id="techs"
-          title={
+          fields={
             sections.find((section) => section.fields.slug === 'techs').fields
-              .title
-          }
-          description={
-            sections.find((section) => section.fields.slug === 'techs').fields
-              .description
           }
         >
           <TechsList data={techs} />
@@ -100,19 +95,17 @@ export default function Home({
 
         <ProjectsSection
           id="projects"
-          data={sections.find((section) => section.fields.slug === 'projects')}
+          fields={
+            sections.find((section) => section.fields.slug === 'projects')
+              .fields
+          }
           projects={projects}
         />
 
         <ListSection
           id="posts"
-          title={
+          fields={
             sections.find((section) => section.fields.slug === 'posts').fields
-              .title
-          }
-          description={
-            sections.find((section) => section.fields.slug === 'posts').fields
-              .description
           }
         >
           <GridList>{postsElements}</GridList>
