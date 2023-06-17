@@ -17,10 +17,7 @@ export const Section = styled.section`
 
     overflow-x: scroll;
 
-    padding: 3.4rem 1.6rem;
-    @media (min-width: ${sizes.desktop_sm}px) {
-      padding: 3.2rem 2.4rem;
-    }
+    padding: 2.4rem;
 
     &::-webkit-scrollbar {
       display: none;

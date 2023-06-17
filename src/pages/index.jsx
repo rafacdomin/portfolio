@@ -25,7 +25,13 @@ import {
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
-export default function Home({ changeTheme, sections, techs, projects }) {
+export default function Home({
+  changeTheme,
+  sections,
+  techs,
+  projects,
+  posts,
+}) {
   const {
     images: { contactSVG, saberLeft, saberRight },
     colors: { highlight },
@@ -43,34 +49,13 @@ export default function Home({ changeTheme, sections, techs, projects }) {
     return () => window.removeEventListener('resize', handleResize);
   }, []);
 
-  const projectsElements = useMemo(() => {
-    const projects = [
-      {
-        title: 'Project 1',
-        image:
-          'https://images.prismic.io/rafael-domingues-portfolio/f7c46ef6-5ecc-4d0b-a38f-d9223545829a_1_y6C4nSvy2Woe0m7bWEn4BA.png?auto=compress,format',
-        url: 'https://rafaeldomingues.dev',
-      },
-      {
-        title: 'Project 1',
-        image:
-          'https://images.prismic.io/rafael-domingues-portfolio/c5f15cc5-c09c-4b8a-8978-d69fd42a6e56_demo.png?auto=compress,format',
-        url: 'https://rafaeldomingues.dev/en',
-      },
-      {
-        title: 'Project 1',
-        image:
-          'https://images.prismic.io/rafael-domingues-portfolio/6336aee7-099e-4ccc-b7ea-c8ecc510c6f4_3f3xmx9tb3310r7wsl1c.gif?auto=compress,format',
-        url: 'https://rafaeldomingues.dev/pt',
-      },
-    ];
-
-    return projects.slice(0, 4).map(({ title, image, url }) => (
+  const postsElements = useMemo(() => {
+    return posts.slice(0, 4).map(({ fields: { title, image, url } }) => (
       <li key={url}>
         <GridItem title={title} image={image} url={url} />
       </li>
     ));
-  }, []);
+  }, [posts]);
 
   const sabers = useMemo(() => {
     if (isMobile) {
@@ -130,7 +115,7 @@ export default function Home({ changeTheme, sections, techs, projects }) {
               .description
           }
         >
-          <GridList>{projectsElements}</GridList>
+          <GridList>{postsElements}</GridList>
         </ListSection>
 
         <ContactSection id="contact">
@@ -168,19 +153,20 @@ export default function Home({ changeTheme, sections, techs, projects }) {
 }
 
 export async function getStaticProps() {
-  const [sectionsResponse, techsResponse, projectsResponse] = await Promise.all(
-    [
+  const [sectionsResponse, techsResponse, projectsResponse, postsResponse] =
+    await Promise.all([
       client.getEntries({ content_type: 'sections' }),
       client.getEntries({ content_type: 'techs' }),
       client.getEntries({ content_type: 'projects' }),
-    ]
-  );
+      client.getEntries({ content_type: 'posts' }),
+    ]);
 
   return {
     props: {
       sections: sectionsResponse.items,
       techs: techsResponse.items,
       projects: projectsResponse.items,
+      posts: postsResponse.items,
       revalidate: 60,
     },
   };
