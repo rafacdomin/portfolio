@@ -11,32 +11,23 @@ import {
   SEO,
   Footer,
   ListSection,
-  Card,
-  TechItem,
   GridItem,
+  TechsList,
+  AboutSection,
+  ProjectsSection,
 } from 'components';
 import {
   Main,
   GridList,
   ContactSection,
   ContactForm,
-  ProjectsSection,
   ContactAnimation,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
-import { AboutSection } from './_home/about-section';
-import { TechsList } from './_home/techs-list';
 
 export default function Home({ changeTheme, sections, techs }) {
   const {
-    images: {
-      contactSVG,
-      saberLeft,
-      saberRight,
-      linkedinSVG,
-      githubSVG,
-      devSVG,
-    },
+    images: { contactSVG, saberLeft, saberRight },
     colors: { highlight },
     name: theme,
   } = useTheme();
@@ -81,34 +72,6 @@ export default function Home({ changeTheme, sections, techs }) {
     ));
   }, []);
 
-  const socials = useMemo(() => {
-    const socialItems = [
-      {
-        name: 'Linkedin',
-        image: linkedinSVG,
-        url: 'https://www.linkedin.com/in/rafaelcodomingues',
-      },
-      {
-        name: 'Github',
-        image: githubSVG,
-        url: 'https://www.linkedin.com/in/rafaelcodomingues',
-      },
-      {
-        name: 'Dev.to',
-        image: devSVG,
-        url: 'https://www.linkedin.com/in/rafaelcodomingues',
-      },
-    ];
-
-    return socialItems.map((social) => (
-      <li key={social.name}>
-        <a href={social.url} target="_blank" rel="noreferrer">
-          <Image src={social.image} alt={social.name} />
-        </a>
-      </li>
-    ));
-  }, [devSVG, githubSVG, linkedinSVG]);
-
   const sabers = useMemo(() => {
     if (isMobile) {
       return <Image src={saberLeft} alt="" />;
@@ -150,35 +113,7 @@ export default function Home({ changeTheme, sections, techs }) {
           <TechsList data={techs} />
         </ListSection>
 
-        <ProjectsSection id="projects">
-          <div>
-            <h2>Projects</h2>
-            <p>Some of my most recents projects</p>
-          </div>
-
-          <ul>
-            <li>
-              <Card
-                image="https://stefantopalovicdev.vercel.app/static/media/coindom-full.c5fef9ca2f47e52897f8.png"
-                title="How i created a query language for .git"
-                description="TLDR How i created a query language for.git files (GQL) GQL is aquery language with a syntax very similar to SQL with a tiny engine to perform queries on. git files. The engine has the functionality to deal with."
-                techs={[{ name: 'React', url: 'https://reactjs.org' }]}
-                githubURL="https://github.com/"
-                demoURL="https://github.com/"
-              />
-            </li>
-            <li>
-              <Card
-                image="https://stefantopalovicdev.vercel.app/static/media/coindom-full.c5fef9ca2f47e52897f8.png"
-                title="How i created a query language for .git files (GQL)"
-                description="TLDR How i created a query language for.git files (GQL) GQL is aquery language with a syntax very similar to SQL with a tiny engine to perform queries on. git files. The engine has the functionality to deal with."
-                techs={[{ name: 'React', url: 'https://reactjs.org' }]}
-                githubURL="https://github.com/"
-                demoURL="https://github.com/"
-              />
-            </li>
-          </ul>
-        </ProjectsSection>
+        <ProjectsSection />
 
         <ListSection id="posts" title="Posts" url="">
           <GridList>{projectsElements}</GridList>
@@ -210,7 +145,7 @@ export default function Home({ changeTheme, sections, techs }) {
           </ContactAnimation>
 
           <div>{sabers}</div>
-          <ul>{socials}</ul>
+          {/* <ul>{socials}</ul> */}
         </ContactSection>
       </Main>
       <Footer />

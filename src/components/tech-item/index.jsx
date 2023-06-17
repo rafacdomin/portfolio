@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { TechLink } from './styles';
-import ContentfulImage from 'components/contentful-image';
+import { ContentfulImage } from 'components/contentful-image';
 
 export const TechItem = ({ name, url, image }) => {
   return (
