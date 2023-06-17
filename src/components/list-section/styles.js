@@ -7,31 +7,8 @@ export const Section = styled.section`
     width: 100%;
   }
 
-  > div {
-    display: flex;
-    justify-content: space-between;
-
-    h1 {
-      display: flex;
-      align-items: flex-start;
-
-      img {
-        margin-left: 0.8rem;
-      }
-    }
-
-    a {
-      display: block;
-      text-decoration: none;
-      color: ${({ theme }) => theme.colors.secundary};
-
-      text-align: end;
-      transition: transform 0.2s;
-
-      &:hover {
-        transform: scale(1.05);
-      }
-    }
+  h2 {
+    margin-bottom: 0.8rem;
   }
 
   > ul {

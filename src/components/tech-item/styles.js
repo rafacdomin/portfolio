@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from 'styles/colors';
 import { sizes } from 'styles/sizes';
 
 export const TechLink = styled.a`
@@ -12,16 +11,13 @@ export const TechLink = styled.a`
 
   transition: transform 0.5s;
   &:hover {
-    transform: scale(1.1);
-
     img {
       filter: brightness(0.8);
+      transform: scale(1.1);
     }
   }
 
   img {
-    background: ${colors.dark};
-    padding: 0.8rem;
     border-radius: 50%;
     margin-bottom: 0.8rem;
 

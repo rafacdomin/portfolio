@@ -3,6 +3,7 @@ import { useTheme } from 'styled-components';
 import Image from 'next/image';
 import Lottie from 'lottie-react';
 
+import { client } from 'lib/contentful/client';
 import babyYodaAnimation from 'lottie/baby-yoda.json';
 import {
   Button,
@@ -16,8 +17,6 @@ import {
 } from 'components';
 import {
   Main,
-  AboutSection,
-  AboutContent,
   GridList,
   ContactSection,
   ContactForm,
@@ -25,11 +24,12 @@ import {
   ContactAnimation,
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
+import { AboutSection } from './_home/about-section';
+import { TechsList } from './_home/techs-list';
 
-export default function Home({ changeTheme }) {
+export default function Home({ changeTheme, sections, techs }) {
   const {
     images: {
-      profilePic,
       contactSVG,
       saberLeft,
       saberRight,
@@ -50,53 +50,6 @@ export default function Home({ changeTheme }) {
     handleResize();
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
-  }, []);
-
-  const techsImages = useMemo(() => {
-    const techs = [
-      {
-        name: 'React',
-        image:
-          'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org/',
-      },
-      {
-        name: 'React 1',
-        image:
-          'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org/',
-      },
-      {
-        name: 'React 2',
-        image:
-          'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org/',
-      },
-      {
-        name: 'React 3',
-        image:
-          'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org/',
-      },
-      {
-        name: 'React 4',
-        image:
-          'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org/',
-      },
-      {
-        name: 'React 5',
-        image:
-          'data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9Ii0xMS41IC0xMC4yMzE3NCAyMyAyMC40NjM0OCI+CiAgPHRpdGxlPlJlYWN0IExvZ288L3RpdGxlPgogIDxjaXJjbGUgY3g9IjAiIGN5PSIwIiByPSIyLjA1IiBmaWxsPSIjNjFkYWZiIi8+CiAgPGcgc3Ryb2tlPSIjNjFkYWZiIiBzdHJva2Utd2lkdGg9IjEiIGZpbGw9Im5vbmUiPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIi8+CiAgICA8ZWxsaXBzZSByeD0iMTEiIHJ5PSI0LjIiIHRyYW5zZm9ybT0icm90YXRlKDYwKSIvPgogICAgPGVsbGlwc2Ugcng9IjExIiByeT0iNC4yIiB0cmFuc2Zvcm09InJvdGF0ZSgxMjApIi8+CiAgPC9nPgo8L3N2Zz4K',
-        url: 'https://reactjs.org/',
-      },
-    ];
-
-    return techs.map(({ name, image, url }) => (
-      <li key={name}>
-        <TechItem name={name} image={image} url={url} />
-      </li>
-    ));
   }, []);
 
   const projectsElements = useMemo(() => {
@@ -178,31 +131,23 @@ export default function Home({ changeTheme }) {
       <SEO title="Rafael Domingues | FrontEnd Dev" shouldExcludeTitleSuffix />
       <Header changeTheme={changeTheme} />
       <Main>
-        <AboutSection id="about">
-          <Image src={profilePic} alt="profile" priority />
-          <AboutContent>
-            <h1>
-              Hello There. <br />
-              {isMobile ? "I'm Rafael," : 'I am Rafael Domingues,'}
-              <br />
-              <span>Front End Developer</span>
-            </h1>
-            <small>
-              and {theme === 'bright' ? 'Jedi Master' : 'Sith Lord'}
-            </small>
+        <AboutSection
+          data={sections.find((section) => section.fields.slug === 'about')}
+          isMobile={isMobile}
+        />
 
-            <p>
-              Currently based in Rio de Janeiro, Brazil, Planet Earth. Working
-              with the development and improvement of a Design System and, in
-              the meantime, helping the galaxy find peace.
-            </p>
-
-            <ul>{socials}</ul>
-          </AboutContent>
-        </AboutSection>
-
-        <ListSection id="techs" title="Techs" url="">
-          <ul>{techsImages}</ul>
+        <ListSection
+          id="techs"
+          title={
+            sections.find((section) => section.fields.slug === 'techs').fields
+              .title
+          }
+          description={
+            sections.find((section) => section.fields.slug === 'techs').fields
+              .description
+          }
+        >
+          <TechsList data={techs} />
         </ListSection>
 
         <ProjectsSection id="projects">
@@ -271,4 +216,19 @@ export default function Home({ changeTheme }) {
       <Footer />
     </>
   );
+}
+
+export async function getStaticProps() {
+  const [sectionsResponse, techsResponse] = await Promise.all([
+    client.getEntries({ content_type: 'sections' }),
+    client.getEntries({ content_type: 'techs' }),
+  ]);
+
+  return {
+    props: {
+      sections: sectionsResponse.items,
+      techs: techsResponse.items,
+      revalidate: 60,
+    },
+  };
 }
