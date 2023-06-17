@@ -25,7 +25,7 @@ import {
 } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
-export default function Home({ changeTheme, sections, techs }) {
+export default function Home({ changeTheme, sections, techs, projects }) {
   const {
     images: { contactSVG, saberLeft, saberRight },
     colors: { highlight },
@@ -113,9 +113,23 @@ export default function Home({ changeTheme, sections, techs }) {
           <TechsList data={techs} />
         </ListSection>
 
-        <ProjectsSection />
+        <ProjectsSection
+          id="projects"
+          data={sections.find((section) => section.fields.slug === 'projects')}
+          projects={projects}
+        />
 
-        <ListSection id="posts" title="Posts" url="">
+        <ListSection
+          id="posts"
+          title={
+            sections.find((section) => section.fields.slug === 'posts').fields
+              .title
+          }
+          description={
+            sections.find((section) => section.fields.slug === 'posts').fields
+              .description
+          }
+        >
           <GridList>{projectsElements}</GridList>
         </ListSection>
 
@@ -154,15 +168,19 @@ export default function Home({ changeTheme, sections, techs }) {
 }
 
 export async function getStaticProps() {
-  const [sectionsResponse, techsResponse] = await Promise.all([
-    client.getEntries({ content_type: 'sections' }),
-    client.getEntries({ content_type: 'techs' }),
-  ]);
+  const [sectionsResponse, techsResponse, projectsResponse] = await Promise.all(
+    [
+      client.getEntries({ content_type: 'sections' }),
+      client.getEntries({ content_type: 'techs' }),
+      client.getEntries({ content_type: 'projects' }),
+    ]
+  );
 
   return {
     props: {
       sections: sectionsResponse.items,
       techs: techsResponse.items,
+      projects: projectsResponse.items,
       revalidate: 60,
     },
   };
