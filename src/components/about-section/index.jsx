@@ -22,7 +22,7 @@ export const AboutSection = ({ data, isMobile, ...props }) => {
           <br />
           <span>Front End Developer</span>
         </h1>
-        <small>and {theme === 'bright' ? 'Jedi Master' : 'Sith Lord'}</small>
+        {/* <small>and {theme === 'bright' ? 'Jedi Master' : 'Sith Lord'}</small> */}
 
         <p>{description}</p>
 
