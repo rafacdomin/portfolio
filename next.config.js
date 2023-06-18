@@ -1,9 +1,5 @@
-const nextTranslate = require('next-translate');
-const withImages = require('next-images');
-
-module.exports = nextTranslate({
-  ...withImages(),
+module.exports = {
   images: {
-    domains: ['images.prismic.io']
-  }
-});
+    domains: ['images.prismic.io', 'stefantopalovicdev.vercel.app'],
+  },
+};
