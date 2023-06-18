@@ -45,31 +45,31 @@ export const HeaderNav = styled.nav`
 
   @media (min-width: ${sizes.desktop_sm}px) {
     > button {
-      display: none;
+      /* display: none; */
     }
   }
 `;
 
 export const NavList = styled.ul`
-  display: none;
+  /* display: none; */
 
-  @media (min-width: ${sizes.desktop_sm}px) {
-    display: flex;
-    align-items: center;
-    list-style: none;
+  /* @media (min-width: ${sizes.desktop_sm}px) { */
+  display: flex;
+  align-items: center;
+  list-style: none;
 
-    li {
-      a {
-        display: block;
-        padding: 0.4rem;
-        text-decoration: none;
-        color: inherit;
-        font-family: inherit;
-      }
-
-      & + li {
-        margin-left: 1.6rem;
-      }
+  li {
+    a {
+      display: block;
+      padding: 0.4rem;
+      text-decoration: none;
+      color: inherit;
+      font-family: inherit;
     }
-  } ;
+
+    & + li {
+      margin-left: 1.6rem;
+    }
+    /* } */
+  }
 `;

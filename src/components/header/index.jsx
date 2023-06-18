@@ -14,7 +14,7 @@ export const Header = ({ changeTheme }) => {
       { children: 'About', href: '#about', element: 'a' },
       { children: 'Projects', href: '#projects', element: 'a' },
       { children: 'Posts', href: '#posts', element: 'a' },
-      { children: 'Contact', href: '#contact', element: 'a' },
+      // { children: 'Contact', href: '#contact', element: 'a' },
       {
         children: <Image src={themeSVG} alt="menu" />,
         element: 'button',
@@ -37,9 +37,9 @@ export const Header = ({ changeTheme }) => {
             <NavItems />
           </NavList>
 
-          <button type="button" onClick={() => {}}>
+          {/* <button type="button" onClick={() => {}}>
             <Image src={menuSVG} alt="menu" />
-          </button>
+          </button> */}
         </HeaderNav>
       </section>
     </HeaderContainer>
