@@ -1,12 +1,7 @@
 import { useEffect, useMemo, useState } from 'react';
-import { useTheme } from 'styled-components';
-import Image from 'next/image';
-import Lottie from 'lottie-react';
 
 import { client } from 'lib/contentful/client';
-import babyYodaAnimation from 'lottie/baby-yoda.json';
 import {
-  Button,
   Header,
   SEO,
   Footer,
@@ -15,14 +10,9 @@ import {
   TechsList,
   AboutSection,
   ProjectsSection,
-} from 'components';
-import {
-  Main,
-  GridList,
   ContactSection,
-  ContactForm,
-  ContactAnimation,
-} from 'styles/pages/home';
+} from 'components';
+import { Main, GridList } from 'styles/pages/home';
 import { sizes } from 'styles/sizes';
 
 export default function Home({
@@ -32,11 +22,6 @@ export default function Home({
   projects,
   posts,
 }) {
-  const {
-    images: { contactSVG, saberLeft, saberRight },
-    colors: { highlight },
-    name: theme,
-  } = useTheme();
   const [isMobile, setIsMobile] = useState(true);
 
   useEffect(() => {
@@ -56,23 +41,6 @@ export default function Home({
       </li>
     ));
   }, [posts]);
-
-  const sabers = useMemo(() => {
-    if (isMobile) {
-      return <Image src={saberLeft} alt="" />;
-    } else {
-      return (
-        <>
-          <Image
-            src={saberLeft}
-            alt=""
-            className={theme === 'dark' ? 'rotate' : null}
-          />
-          <Image src={saberRight} alt="" />
-        </>
-      );
-    }
-  }, [isMobile, saberLeft, saberRight, theme]);
 
   return (
     <>
@@ -111,34 +79,12 @@ export default function Home({
           <GridList>{postsElements}</GridList>
         </ListSection>
 
-        <ContactSection id="contact">
-          <h1>
-            {"Let's get in touch!"} <Image src={contactSVG} alt="" />
-          </h1>
-          <p>
-            Send me a message via email or connect with me through my social
-            media.
-          </p>
-
-          <ContactAnimation>
-            <Lottie animationData={babyYodaAnimation} loop />
-
-            <ContactForm action="">
-              <label htmlFor="email">Your Best Email</label>
-              <input type="email" id="email" name="email" />
-
-              <label htmlFor="message">Message</label>
-              <textarea rows="8" cols="50" id="message" name="message" />
-
-              <Button type="submit" backgroundColor={highlight} color="white">
-                Send
-              </Button>
-            </ContactForm>
-          </ContactAnimation>
-
-          <div>{sabers}</div>
-          {/* <ul>{socials}</ul> */}
-        </ContactSection>
+        <ContactSection
+          id="contact"
+          fields={
+            sections.find((section) => section.fields.slug === 'contact').fields
+          }
+        />
       </Main>
       <Footer />
     </>

@@ -2,6 +2,7 @@ import SEO from './SEO';
 import { AboutSection } from './about-section';
 import { Button } from './button';
 import { Card } from './card';
+import { ContactSection } from './contact-section';
 import { ContentfulImage } from './contentful-image';
 import { Footer } from './footer';
 import { GridItem } from './grid-item';
@@ -26,4 +27,5 @@ export {
   SocialList,
   TechsList,
   ProjectsSection,
+  ContactSection,
 };
