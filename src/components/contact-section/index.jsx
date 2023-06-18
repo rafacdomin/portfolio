@@ -34,7 +34,7 @@ export const ContactSection = ({ fields, isMobile, children, ...props }) => {
 
   return (
     <Section {...props}>
-      <h1>{title}</h1>
+      {/* <h1>{title}</h1>
       <p>{description}</p>
 
       <ContactAnimation>
@@ -51,7 +51,7 @@ export const ContactSection = ({ fields, isMobile, children, ...props }) => {
             Send
           </Button>
         </ContactForm>
-      </ContactAnimation>
+      </ContactAnimation> */}
 
       <div>{sabers}</div>
       <SocialList linkedinURI={linkedin} devURI={dev} githubURI={github} />
