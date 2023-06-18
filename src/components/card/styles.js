@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import { colors } from 'styles/colors';
 import { sizes } from 'styles/sizes';
 
 export const Container = styled.div`
@@ -20,7 +19,7 @@ export const Container = styled.div`
     grid-gap: 2.4rem;
 
     width: 100%;
-    height: 40rem;
+    height: 32rem;
     padding: 2.4rem;
   }
 `;
@@ -29,16 +28,16 @@ export const ImageExample = styled.a`
   grid-area: content1;
   overflow: hidden;
   border-radius: 0.8rem;
-  height: 24rem;
+  height: 21rem;
   box-shadow: 8px 8px 8px rgba(0, 0, 0, 0.2);
 
   img {
     width: 100%;
     height: auto;
 
-    transition: transform 8s;
+    transition: transform 2s;
     &:hover {
-      transform: translateY(-65%);
+      transform: translateY(-5%);
     }
   }
 
@@ -65,10 +64,15 @@ export const Content = styled.span`
 `;
 
 export const TechList = styled.ul`
-  list-style: none;
   display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 0.8rem;
+
+  list-style: none;
 
   li {
+    display: inline-block;
     transition: transform 0.5s;
 
     &:hover {
@@ -76,10 +80,12 @@ export const TechList = styled.ul`
     }
 
     & + li {
-      margin: 0 0 0 0.8rem !important;
+      margin: 0 !important;
     }
 
     a {
+      display: inline-block;
+      font-size: 1.2rem;
       background-color: ${({ theme }) => theme.colors.secundary};
       color: ${({ theme }) => theme.colors.background};
       padding: 0.4rem 1.6rem;

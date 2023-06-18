@@ -1,12 +1,17 @@
 import React from 'react';
-import Image from 'next/image';
 
+import { ContentfulImage } from 'components';
 import { GridLink } from './styles';
 
 export const GridItem = ({ title, url, image }) => {
   return (
     <GridLink href={url} target="_blank" rel="external noreferrer">
-      <Image src={image} alt={title} width={1200} height={630} />
+      <ContentfulImage
+        src={image.fields.file.url}
+        alt={title}
+        width={image.fields.file.details.image.width}
+        height={image.fields.file.details.image.height}
+      />
       <span>{title}</span>
     </GridLink>
   );

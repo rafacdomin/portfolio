@@ -9,6 +9,7 @@ import {
   CallToAction,
   ImageExample,
 } from './styles';
+import { ContentfulImage } from 'components';
 
 export const Card = ({
   image,
@@ -24,9 +25,11 @@ export const Card = ({
 
   const techsList = useMemo(() => {
     return techs
-      ? techs.map((tech) => (
-          <li key={tech.name}>
-            <a href={tech.url}>{tech.name}</a>
+      ? Object.entries(techs).map(([name, url]) => (
+          <li key={name}>
+            <a href={url} target="_blank" rel="noreferrer">
+              {name}
+            </a>
           </li>
         ))
       : null;
@@ -35,7 +38,12 @@ export const Card = ({
   return (
     <Container>
       <ImageExample href={demoURL} target="_blank" rel="noreferrer">
-        <Image width={100} height={100} src={image} alt={title} />
+        <ContentfulImage
+          src={image.fields.file.url}
+          alt={image.fields.title}
+          width={image.fields.file.details.image.width}
+          height={image.fields.file.details.image.height}
+        />
       </ImageExample>
 
       <Content>

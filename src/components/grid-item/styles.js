@@ -11,13 +11,10 @@ export const GridLink = styled.a`
   text-decoration: none;
   color: inherit;
 
-  transition: transform 0.5s;
+  transition: all 0.5s;
   &:hover {
     transform: translateY(-2px);
-
-    img {
-      filter: brightness(0.8);
-    }
+    filter: brightness(0.8);
   }
 
   img {
